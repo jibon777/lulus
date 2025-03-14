@@ -78,7 +78,7 @@ const questions = [
       'Org admin, project browser',
       'Project owner, network admin'
     ],
-    answer: 'Create a Compute Engine instance with CPU and memory options similar to your application\'s current on-premises virtual machine. Install the Cloud Monitoring agent, and deploy the third-party application. Run a load test with normal traffic levels on the application, and follow the Rightsizing Recommendations in the Cloud Console.',
+    answer: 'Org viewer, project viewer',
   },
   {
     question: 'Your company has a Google Cloud project that uses BigQuery for data warehousing. They have a VPN tunnel between the on-premises environment and Google Cloud that is configured with Cloud VPN. The security team wants to avoid data exfiltration by malicious insiders, compromised code, and accidental oversharing. What should they do?',
