@@ -192,13 +192,14 @@ const questions = [
       'Google Kubernetes Engine with containers',
       'Google App Engine Standard Environment',
     ],  
+    question: 'One of your primary business objectives is being able to trust the data stored in your application. You want to log all changes to the application data. How can you design your logging system to verify authenticity of your logs?',
     options: [
-      'Use the Linux dd and netcat commands to copy and stream the root disk contents to a new virtual  machine instance in the US-East region.',
-      'Create a snapshot of the root disk and select the snapshot as the root disk when you create a new virtual machine instance in the US-East region.',
-      'Create an image file from the root disk with Linux dd command, create a new virtual machine instance in the US-East region',
-      'Create a snapshot of the root disk, create an image file in Google Cloud Storage from the snapshot, and create a new virtual machine instance in the US-East region using the image file the root disk.',
+      'Write the log concurrently in the cloud and on premises.',
+      'Use a SQL database and limit who can modify the log table.',
+      'Digitally sign each timestamp and log entry and store the signature.',
+      'Create a JSON dump of each log entry and store it in Google Cloud Storage.',
     ],
-    answer: 'In the Logging section of the console, specify GCE Network as the logging section. Search for the Create Insert entry.'
+    answer: 'Digitally sign each timestamp and log entry and store the signature.'
   }, 
 ];
 
