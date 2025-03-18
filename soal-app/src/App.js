@@ -4,9 +4,9 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState([]);
-  const [score, setScore] = useState(0);
   const [isAnswered, setIsAnswered] = useState(false);
   const [error, setError] = useState('');
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     fetch('http://localhost:5000/questions')
@@ -16,8 +16,8 @@ function App() {
   }, []);
 
   const handleAnswer = (answer) => {
-    if (isAnswered) return;
-    const correctAnswers = questions[currentQuestion].answer;
+    if (isAnswered || !questions[currentQuestion]) return;
+    const correctAnswers = questions[currentQuestion]?.answer || [];
     const isMultipleChoice = Array.isArray(correctAnswers);
     
     if (!isMultipleChoice) {
@@ -34,19 +34,19 @@ function App() {
   };
 
   const checkAnswer = () => {
-    if (userAnswer.length === questions[currentQuestion].options.length) {
+    if (!questions[currentQuestion]) return;
+    if (userAnswer.length === questions[currentQuestion]?.options?.length) {
       setError('Anda tidak boleh memilih semua jawaban!');
       return;
     }
-
-    const correct = questions[currentQuestion].answer;
-    const isCorrect =
-      userAnswer.length === correct.length &&
-      userAnswer.every((ans) => correct.includes(ans));
-
+    
+    const correctAnswers = questions[currentQuestion]?.answer || [];
+    const isCorrect = userAnswer.every((ans) => correctAnswers.includes(ans)) && userAnswer.length === correctAnswers.length;
+    
     if (isCorrect) {
-      setScore(score + 1);
+      setScore((prevScore) => prevScore + 1);
     }
+    
     setIsAnswered(true);
   };
 
@@ -54,31 +54,34 @@ function App() {
     if (!isAnswered) return;
     
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion((prev) => prev + 1);
       setUserAnswer([]);
       setIsAnswered(false);
       setError('');
     } else {
-      const correctPercentage = ((score / questions.length) * 100).toFixed(2);
-      alert(`Kuis selesai! Skor Anda: ${score}/${questions.length} (${correctPercentage}%)`);
-      setCurrentQuestion(0);
-      setScore(0);
-      setUserAnswer([]);
-      setIsAnswered(false);
+      setTimeout(() => {
+        alert(`Kuis selesai! Skor Anda: ${score + (isAnswered ? 1 : 0)}/${questions.length}`);
+        setCurrentQuestion(0);
+        setUserAnswer([]);
+        setIsAnswered(false);
+        setScore(0);
+      }, 100);
     }
   };
 
   return (
     <div className="App" style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Kuis Pilihan Ganda</h1>
-      {questions.length > 0 && (
+      <h3>Jumlah Soal: {questions.length}</h3>
+      <h3>Skor: {score}</h3>
+      {questions.length > 0 && questions[currentQuestion] && (
         <div>
-          <h2>{questions[currentQuestion].question}</h2>
-          {questions[currentQuestion].instruction && <p>{questions[currentQuestion].instruction}</p>}
+          <h2>{questions[currentQuestion]?.question}</h2>
+          {questions[currentQuestion]?.instruction && <p>{questions[currentQuestion]?.instruction}</p>}
           <div>
-            {questions[currentQuestion].options.map((option, index) => {
+            {questions[currentQuestion]?.options?.map((option, index) => {
               const optionLetter = String.fromCharCode(65 + index);
-              const isCorrect = questions[currentQuestion].answer.includes(option);
+              const isCorrect = questions[currentQuestion]?.answer?.includes(option) || false;
               const isSelected = userAnswer.includes(option);
               let backgroundColor = '';
               
