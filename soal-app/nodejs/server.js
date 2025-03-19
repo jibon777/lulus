@@ -310,6 +310,138 @@ const questions = [
     ],
     answer: 'Use the Storage Transfer Service to move the data',
   },   
+  {
+    question: 'You have a Compute Engine managed instance group that adds and removes Compute Engine instances from the group in response to the load on your application. The instances have a shutdown script that removes REDIS database entries associated with the instance. You see that many database entries have not been removed, and you suspect that the shutdown script is the problem. You need to ensure that the commands in the shutdown script are run reliably every time an instance is shut down. You create a Cloud Function to remove the database entries. What should you do next?',
+    options: [
+      'Modify the shutdown script to wait for 30 seconds before triggering the Cloud Function',  
+      'Do not use the Cloud Function. Modify the shutdown script to restart if it has not completed in 30 seconds',
+      'Set up a Cloud Monitoring sink that triggers the Cloud Function after an instance removal log message arrives in Cloud Logging.',
+      'Modify the shutdown script to wait for 30 seconds and then publish a message to a Pub/Sub queue.',
+    ],
+    answer: 'Set up a Cloud Monitoring sink that triggers the Cloud Function after an instance removal log message arrives in Cloud Logging',
+  },   
+  {
+    question: 'You are managing several projects on Google Cloud and need to interact on a daily basis with BigQuery, Bigtable, and Kubernetes Engine using the gcloud CL tool. You are travelling a lot and work on different workstations during the week. You want to avoid having to manage the gcloud CLI manually. What should you do?',
+    options: [
+      'Use Google Cloud Shell in the Google Cloud Console to interact with Google Cloud.',  
+      'Create a Compute Engine instance and install gcloud on the instance. Connect to this instance via SSH to always use the same gcloud installation when interacting with Google Cloud.',
+      'Install gcloud on all of your workstations. Run the command gcloud components auto-update on each workstation.',
+      'Use a package manager to install gcloud on your workstations instead of installing it manually',
+    ],
+    answer: 'Use Google Cloud Shell in the Google Cloud Console to interact with Google Cloud.',
+  },
+  {
+    question: 'Your company recently acquired a company that has infrastructure in Google Cloud. Each company has its own Google Cloud organization. Each company is using a Shared Virtual Private Cloud (VPC) to provide network connectivity for its applications. Some of the subnets used by both companies overlap. In order for both businesses to integrate, the applications need to have private network connectivity. These applications are not on overlapping subnets. You want to provide connectivity with minimal re-engineering. What should you do?',
+    options: [
+      'Set up VPC peering and peer each Shared VPC together.',  
+      'Migrate the projects from the acquired company into your companys Google Cloud organization. Re-launch the instances in your companies Shared VPC. ',
+      'Set up a Cloud VPN gateway in each Shared VPC and peer Cloud VPNs.',
+      'Use a package manager to install gcloud on your workstations instead of installing it manually',
+    ],
+    answer: 'Configure SSH port forwarding on each application to provide connectivity between applications in the different Shared VPCs.',
+  }, 
+  {
+    question: 'You are managing several internal applications that are deployed on Compute Engine. Business users inform you that an application has become very slow over the past few days. You want to find the underlying cause in order to solve the problem. What should you do first?',
+    options: [
+      'Inspect the logs and metrics from the instances in Cloud Logging and Cloud Monitoring.',  
+      'Change the Compute Engine Instances behind the application to a machine type with more CPU and memory.',
+      'Restore a backup of the application database from a time before the application became slow.',
+      'Deploy the applications on a managed instance group with autoscaling enabled. Add a load balancer in front of the managed instance group, and have the users connect to the IP of the load balancer.',
+    ],
+    answer: 'Inspect the logs and metrics from the instances in Cloud Logging and Cloud Monitoring.',
+  }, 
+  {
+    question: 'Your company has an application running as a Deployment in a Google Kubernetes Engine (GKE) cluster. When releasing new versions of the application via a rolling deployment, the team has been causing outages. The root cause of the outages is misconfigurations with parameters that are only used in production. You want to put preventive measures for this in the platform to prevent outages. What should you do?',
+    options: [
+      'Configure liveness and readiness probes in the Pod specification.',  
+      'Configure health checks on the managed instance group.',
+      'Create a Scheduled Task to check whether the application is available.',
+      'Configure an uptime alert in Cloud Monitoring.',
+    ],
+    answer: 'Configure liveness and readiness probes in the Pod specification.',
+  },
+  {
+    question: 'Your company uses Google Kubernetes Engine (GKE) as a platform for all workloads. Your company has a single large GKE cluster that contains batch, stateful, and stateless workloads. The GKE cluster is configured with a single node pool with 200 nodes. Your company needs to reduce the cost of this cluster but does not want to compromise availability. What should you do?',
+    options: [
+      'Create a second GKE cluster for the batch workloads only. Allocate the 200 original nodes across both clusters.',  
+      'Configure CPU and memory limits on the namespaces in the cluster. Configure all Pods to have a CPU and memory limits.',
+      'Configure a HorizontalPodAutoscaler for all stateless workloads and for all compatible stateful workloads. Configure the cluster to use node auto scaling.',
+      'Change the node pool to use preemptible VMs.',
+    ],
+    answer: 'Configure a HorizontalPodAutoscaler for all stateless workloads and for all compatible stateful workloads. Configure the cluster to use node auto scaling.',
+  }, 
+  {
+    question: 'Your company has a Google Cloud project that uses BigQuery for data warehousing on a pay-per-use basis. You want to monitor queries in real time to discover the most costly queries and which users spend the most. What should you do?',
+    options: [
+      '1. In the BigQuery dataset that contains all the tables to be queried, add a label for each user that can launch a query. 2. Open the Billing page of the project. 3. Select Reports. 4. Select BigQuery as the product and filter by the user you want to check.Create a second GKE cluster for the batch workloads only. Allocate the 200 original nodes across both clusters.',  
+      '1. Create a Cloud Logging sink to export BigQuery data access logs to BigQuery. 2. Perform a BigQuery query on the generated table to extract the information you need.',
+      '1. Create a Cloud Logging sink to export BigQuery data access logs to Cloud Storage. 2. Develop a Dataflow pipeline to compute the cost of queries split by users.',
+      '1. Activate billing export into BigQuery. 2. Perform a BigQuery query on the billing table to extract the information you need.',
+    ],
+    answer: '1. Create a Cloud Logging sink to export BigQuery data access logs to BigQuery. 2. Perform a BigQuery query on the generated table to extract the information you need.',
+  }, 
+  {
+    question: 'Your company and one of its partners each have a Google Cloud project in separate organizations. Your companys project (prj-a) runs in Virtual Private Cloud (vpc-a). The partners project (prj-b) runs in vpc-b. There are two instances running on vpc-a and one instance running on vpc-b. Subnets defined in both VPCs are not overlapping. You need to ensure that all instances communicate with each other via internal IPs, minimizing latency and maximizing throughput. What should you do?',
+    options: [
+      'Set up a network peering between vpc-a and vpc-b.',  
+      'Set up a VPN between vpc-a and vpc-b using Cloud VPN.',
+      'Configure IAP TCP forwarding on the instance in vpc-b, and then launch the following gcloud command from one of the instances in vpc-a gcloud: gcloud compute start-iap-tunnel INSTANCE_NAME_IN_VPC_8 22 \--local-host-port=localhost:22 .',
+      '1. Create an additional instance in vpc-a. 2. Create an additional instance in vpc-b. 3. Install OpenVPN in newly created instances. 4. Configure a VPN tunnel between vpc-a and vpc-b with the help of OpenVPN.',
+    ],
+    answer: 'Set up a network peering between vpc-a and vpc-b.',
+  },
+  {
+    question: 'You want to store critical business information in Cloud Storage buckets. The information is regularly changed, but previous versions need to be referenced on a regular basis. You want to ensure that there is a record of all changes to any information in these buckets. You want to ensure that accidental edits or deletions can be easily rolled back. Which feature should you enable? .',
+    options: [
+      'Bucket Lock.',  
+      'Object Versioning.',
+      'Object change notification.',
+      'Object Lifecycle Management.',
+    ],
+    answer: 'Object Versioning.',
+  }, 
+  {
+    question: 'You have a Compute Engine application that you want to autoscale when total memory usage exceeds 80%. You have installed the Cloud Monitoring agent and configured the autoscaling policy as follows: ✑ Metric identifier: agent.googleapis.com/memory/percent_used ✑ Filter: metric.label.state = "used"  ✑ Target utilization level: 80 ✑ Target type: GAUGE You observe that the application does not scale under high load. You want to resolve this. What should you do?.',
+    options: [
+      'Change the Target type to DELTA_PER_MINUTE.',  
+      'Change the Metric identifier to agent.googleapis.com/memory/bytes_used.',
+      'Change the filter to metric.label.state = "use"  AND metric.label.state = "buffered" AND metric.label.state = "cached" AND metric.label.state = "slab".',
+      'Change the filter to metric.label.state = "free" and the Target utilization to 20.',
+    ],
+    answer: 'Change the filter to metric.label.state = "use"  AND metric.label.state = "buffered" AND metric.label.state = "cached" AND metric.label.state = "slab".',
+  },
+  {
+    question: 'You are deploying an application to Google Cloud. The application is part of a system. The application in Google Cloud must communicate over a private network with applications in a non-Google Cloud environment. The expected average throughput is 200 kbps. The business requires: ✑ as close to 100% system availability as possible ✑ cost optimizationYou need to design the connectivity between the locations to meet the business requirements. What should you provision',
+    options: [
+      'An HA Cloud VPN gateway connected with two tunnels to an on-premises VPN gateway.',  
+      'Two Classic Cloud VPN gateways connected to two on-premises VPN gateways Configure each Classic Cloud VPN gateway to have two tunnels, each connected to different on-premises VPN gateways.',
+      'Two HA Cloud VPN gateways connected to two on-premises VPN gateways Configure each HA Cloud VPN gateway to have two tunnels, each connected to different on-premises VPN gateways',
+      'A single Cloud VPN gateway connected to an on-premises VPN gateway.',
+    ],
+    answer: 'An HA Cloud VPN gateway connected with two tunnels to an on-premises VPN gateway.',
+  },
+  {
+    question: 'Your company has an application running on App Engine that allows users to upload music files and share them with other people. You want to allow users to upload files directly into Cloud Storage from their browser session. The payload should not be passed through the backend. What should you do? .',
+    options: [
+      '1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin. 2. Use the Cloud Storage Signed URL feature to generate a POST URL.',  
+      '1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin.',
+      '1. Use the Cloud Storage Signed URL feature to generate a POST URL.2. Use App Engine default credentials to sign requests against Cloud Storage.',
+      '1. Assign the Cloud Storage WRITER role to users who upload files.2. Use App Engine default credentials to sign requests against Cloud Storage.',
+    ],
+    answer: '1. Set a CORS configuration in the target Cloud Storage bucket where the base URL of the App Engine application is an allowed origin. 2. Use the Cloud Storage Signed URL feature to generate a POST URL.',
+  },
+  {
+    question: 'You are configuring the cloud network architecture for a newly created project in Google Cloud that will host applications in Compute Engine. Compute Engine virtual machine instances will be created in two different subnets (sub-a and sub-b) within a single region: • Instances in sub-a will have public IP addresses. • Instances in sub-b will have only private IP addresses. To download updated packages, instances must connect to a public repository outside the boundaries of Google Cloud. You need to allow sub-b to access the external repository. What should you do?.',
+    options: [
+      'Enable Private Google Access on sub-b.',  
+      'Configure Cloud NAT and select sub-b in the NAT mapping section.',
+      'Configure a bastion host instance in sub-a to connect to instances in sub-b.',
+      'Enable Identity-Aware Proxy for TCP forwarding for instances in sub-b.',
+    ],
+    answer: 'Configure Cloud NAT and select sub-b in the NAT mapping section.',
+  },
+
+
 ];
 
 // Fungsi untuk mengacak array
