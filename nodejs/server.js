@@ -24,6 +24,103 @@ const questions = [
       'The model is not trained on enough data',
     ],
  },
+ {
+  question: 'What are foundation models in Generative AI?',
+  options: [
+    'A foundation model is the first step in the generative AI process, responsible for creating the basic building blocks that are used to create more complex models.',
+    'A foundation model is a large AI model pretrained on a vast quantity of data that was "designed to be adapted” (or fine-tuned) to a wide range of downstream tasks, such as sentiment analysis, image captioning, and object recognition.',
+    'A foundation model is used to create new types of software that can generate different types of content.',
+    'A foundation model is used to improve the performance of other models by fine-tuning other models, which can help them to learn how to generate more accurate and realistic content.',
+  ],
+  answer: [
+    'A foundation model is a large AI model pretrained on a vast quantity of data that was "designed to be adapted” (or fine-tuned) to a wide range of downstream tasks, such as sentiment analysis, image captioning, and object recognition.',
+  ],
+},
+{
+  question: 'What is an example of both a generative AI model and a discriminative AI model?',
+  options: [
+    'A generative AI model could be trained on a dataset of images of cats and then used to cluster images of cats. A discriminative AI model could be trained on a dataset of images of cats and dogs and then used to predict as either cats or dogs.',
+    'A generative AI model could be trained on a dataset of images of cats and dogs and then used to classify new images as either cats or dogs. A discriminative AI model could be trained on a dataset of images of cats and then used to generate new images of cats.',
+    'A generative AI model could be trained on a dataset of images of cats and then used to classify new images of cats. A discriminative AI model could be trained on a dataset of images of cats and dogs and then used to predict new images as either cats or dogs.',
+    'A generative AI model could be trained on a dataset of images of cats and then used to generate new images of cats. A discriminative AI model could be trained on a dataset of images of cats and dogs and then used to classify new images as either cats or dogs.',
+  ],
+  answer: [
+    'A generative AI model could be trained on a dataset of images of cats and then used to generate new images of cats. A discriminative AI model could be trained on a dataset of images of cats and dogs and then used to classify new images as either cats or dogs.',
+  ],
+}, {
+  question: 'What is Generative AI?',
+  options: [
+    'Generative AI is a type of artificial intelligence (AI) that is designed to generate unbiased opinions in the content it produces.',
+    'Generative AI is a type of artificial intelligence (AI) that can create new content which guarantees accuracy and truthfulness.',
+    'Generative AI is a type of artificial intelligence (AI) that can generate new and original ideas or solutions without being trained on existing data.',
+    'Generative AI is a type of artificial intelligence (AI) that can create new content, such as text, images, audio, and video.',
+  ],
+  answer: [
+    'Generative AI is a type of artificial intelligence (AI) that can create new content, such as text, images, audio, and video.',
+  ],
+}, 
+{
+  question: 'What is a prompt?',
+  options: [
+    'A prompt is a long piece of text that is used to debug the large language model.',
+    'A prompt is a short piece of text that is given to the large language model as input, and it can be used to control the output of the model in many ways.',
+    'A prompt is a short piece of text that is used to train the large language model.',
+    'A prompt is a pre-trained generative AI model that serves as a starting point for fine-tuning and customizing the generation of specific types of content.',
+  ],
+  answer: [
+    'A prompt is a short piece of text that is given to the large language model as input, and it can be used to control the output of the model in many ways.',
+  ],
+},
+{
+  question: 'What are large language models (LLMs)?',
+  options: [
+    'An LLM is an artificial neural network architecture optimized for training large-scale reinforcement learning agents capable of mastering complex tasks in robotics.',
+    'An LLM is a type of artificial intelligence (AI) that can generate human-quality text. LLMs are trained on massive datasets of text and code, and they can be used for many tasks, such as writing, translating, and coding.',
+    'An LLM is a state-of-the-art computer vision system that excels in recognizing and analyzing intricate patterns and features in images and videos.',
+    'An LLM is an advanced natural language processing framework that uses linguistic algorithms to generate sophisticated conversational agents.',
+  ],
+  answer: [
+    'An LLM is a type of artificial intelligence (AI) that can generate human-quality text. LLMs are trained on massive datasets of text and code, and they can be used for many tasks, such as writing, translating, and coding.',
+  ],
+},
+{
+  question: 'What are some of the challenges of using LLMs? Select three options.',
+  options: [
+    'They can be biased.',
+    'After being developed, they only change when they are fed new data.',
+    'They can be used to generate harmful content.',
+    'They can be expensive to train.',
+  ],
+  answer: [
+    'They can be biased.',
+    'They can be used to generate harmful content.',
+    'They can be expensive to train.',
+  ],
+},
+{
+  question: 'What are some of the applications of LLMs?',
+  options: [
+    'LLMs can be used for many tasks, including personalized advice and therapy.',
+    'LLMs can be used for many tasks, including original creative expression and ethical decision making.',
+    'LLMs can be used for many tasks, including writing, translating, and coding.',
+    'LLMs can be used for many tasks such as making real-time decisions in emergency situations and generating content based on physical perceptions.',
+  ],
+  answer: [
+    'LLMs can be used for many tasks, including writing, translating, and coding.',
+  ],
+},
+{
+  question: 'What is a benefit of using large language models (LLMs)?',
+  options: [
+    'They can be trained using only a tiny dataset of text and code.',
+    'They can only provide output in the English language.',
+    'They can generate inaccurate or misleading content if their training data is incomplete or biased.',
+    'They can generate human-quality text for tasks such as content creation, writing assistance, and automatic summarization.',
+  ],
+  answer: [
+    'They can generate human-quality text for tasks such as content creation, writing assistance, and automatic summarization.',
+  ],
+},
 ];
 
 // Fungsi untuk mengacak array
