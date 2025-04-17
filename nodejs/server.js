@@ -294,7 +294,439 @@ const questions = [
       'Machine learning can be used to make all users see the same product recommendations, regardless of their preferences or behavior.'
     ],
     answer: 'Through machine learning, with every click that the user makes, their website experience becomes increasingly personalized.'
-  }
+  },
+  {
+    question: 'A data analyst for an online retailer must produce a sales report at the end of each quarter. Which Cloud Storage class should the retailer use for data accessed every 90 days?',
+    options: [
+      'Coldline',
+      'Nearline',
+      'Standard',
+      'Archive'
+    ],
+    answer: 'Coldline'
+  },
+  {
+    question: 'Data in the form of video, pictures, and audio recordings is well suited to object storage. Which product is best for storing this kind of data?',
+    options: [
+      'Cloud Storage',
+      'Cloud SQL',
+      'Firestore',
+      'BigQuery'
+    ],
+    answer: 'Cloud Storage'
+  },
+  {
+    question: 'Which is the best SQL-based storage option for a transactional workload that requires local or regional scalability?',
+    options: [
+      'Cloud Storage',
+      'Spanner',
+      'Bigtable',
+      'Cloud SQL'
+    ],
+    answer: 'Cloud SQL'
+  },
+  {
+    question: 'BigQuery works in a multicloud environment. How do organizations benefit from this feature?',
+    options: [
+      'Data teams can eradicate data silos by analyzing data across multiple cloud providers.',
+      'Multicloud support in BigQuery is only intended for use in disaster recovery scenarios.',
+      'BigQuery lets organizations save costs by limiting the number of cloud providers they use.',
+      'Security is more effective when BigQuery is run in on-premises environments.'
+    ],
+    answer: 'Data teams can eradicate data silos by analyzing data across multiple cloud providers.'
+  },
+  {
+    question: 'Which characteristic is true for all Cloud Storage classes?',
+    options: [
+      'Accessibility only within one region',
+      'High latency and low durability',
+      'Geo-redundancy if data is stored in a multi-region or dual-region',
+      'Maximum storage limits'
+    ],
+    answer: 'Geo-redundancy if data is stored in a multi-region or dual-region'
+  },
+  {
+    question: 'Which strategy describes when databases are migrated from on-premises and private cloud environments to the same type of database hosted by a public cloud provider?',
+    options: [
+      'Lift and shift',
+      'Remain on-premises',
+      'Refactoring',
+      'Managed database migration'
+    ],
+    answer: 'Lift and shift'
+  },
+  {
+    question: 'What is Google\'s big data database service that powers many core Google services, including Google Search, Google Analytics, Google Maps Platform, and Gmail?',
+    options: [
+      'Cloud SQL',
+      'Bigtable',
+      'Spanner',
+      'Cloud Storage'
+    ],
+    answer: 'Bigtable'
+  },
+  {
+    question: 'Which would be the best SQL-based storage option for a transactional workload that requires global scalability?',
+    options: [
+      'Cloud SQL',
+      'Bigtable',
+      'Firestore',
+      'Spanner'
+    ],
+    answer: 'Spanner'
+  },
+  {
+    question: 'What are the two services that BigQuery provides?',
+    options: [
+      'Networking and storage',
+      'Storage and analytics',
+      'Compute and analytics',
+      'Migration and analytics'
+    ],
+    answer: 'Storage and analytics'
+  },
+  {
+    question: 'Which Google Cloud product can be used to synchronize data across databases, storage systems, and applications?',
+    options: [
+      'Datastream',
+      'Dataproc',
+      'Pub/Sub',
+      'Dataprep'
+    ],
+    answer: 'Datastream'
+  },
+  {
+    question: 'Which statement is true about Dataflow?',
+    options: [
+      'It allows easy data cleaning and transformation through visual tools and machine learning-based suggestions.',
+      'It’s a messaging service for receiving messages from various device streams.',
+      'It’s a cloud-based data warehouse for storing and analyzing streaming and batch data.',
+      'It handles infrastructure setup and maintenance for processing pipelines.'
+    ],
+    answer: 'It handles infrastructure setup and maintenance for processing pipelines.'
+  },
+  {
+    question: 'What is Google Cloud’s distributed messaging service that can receive messages from various device streams such as gaming events, Internet of Things (IoT) devices, and application streams?',
+    options: [
+      'Looker',
+      'Dataplex',
+      'Dataproc',
+      'Pub/Sub'
+    ],
+    answer: 'Pub/Sub'
+  },
+  {
+    question: 'What feature of Looker makes it easy to integrate into existing workflows and share with multiple teams at an organization?',
+    options: [
+      'It’s 100% web based.',
+      'It creates easy to understand visualizations.',
+      'It’s cost effective.',
+      'It supports over 60 different SQL databases.'
+    ],
+    answer: 'It’s 100% web based.'
+  },
+  {
+    question: 'What does ETL stand for in the context of data processing?',
+    options: [
+      'Extract, transform, and load',
+      'Enrichment, tagging, and labeling',
+      'Event-time logic',
+      'Enhanced transaction logic'
+    ],
+    answer: 'Extract, transform, and load'
+  },
+  {
+    question: 'What Google Cloud business intelligence platform is designed to help individuals and teams analyze, visualize, and share data?',
+    options: [
+      'Dataflow',
+      'Cloud Storage',
+      'Dataplex',
+      'Looker'
+    ],
+    answer: 'Looker'
+  },
+  {
+    question: 'Streaming analytics is the processing and analyzing of data records continuously instead of in batches. Which option is a source of streaming data?',
+    options: [
+      'Temperature sensors',
+      'Medical test results',
+      'Customer email addresses',
+      'Payroll records'
+    ],
+    answer: 'Temperature sensors'
+  },
+  {
+    question: 'Which dimension for measuring data quality means that the data conforms to a set of predefined standards and definitions such as type and format?',
+    options: [
+      'Uniqueness',
+      'Accuracy',
+      'Consistency',
+      'Validity'
+    ],
+    answer: 'Validity'
+  },
+  {
+    question: 'How do data analytics and business intelligence differ from AI and ML?',
+    options: [
+      'Data analytics and business intelligence are used only in small businesses, whereas AI and ML are used exclusively by large corporations.',
+      'Data analytics and business intelligence use automated decision-making processes, whereas AI and ML require human intervention and interpretation of data.',
+      'Data analytics and business intelligence involve advanced algorithms for predicting future trends, whereas AI and ML focus on processing historical data.',
+      'Data analytics and business intelligence identify trends from historical data, whereas AI and ML use data to make decisions for future business.'
+    ],
+    answer: 'Data analytics and business intelligence identify trends from historical data, whereas AI and ML use data to make decisions for future business.'
+  },
+  {
+    question: 'Google applies generative AI to products like Google Workspace, but what is generative AI?',
+    options: [
+      'A type of artificial intelligence that can make decisions and take actions.',
+      'A type of artificial intelligence that can understand and respond to human emotions.',
+      'A type of artificial intelligence that can create and sustain its own consciousness.',
+      'A type of artificial intelligence that can produce new content, including text, images, audio, and synthetic data.'
+    ],
+    answer: 'A type of artificial intelligence that can produce new content, including text, images, audio, and synthetic data.'
+  },
+  {
+    question: 'Which technology relies on models to analyze large amounts of data, learn from the insights, and then make predictions and informed decisions?',
+    options: [
+      'Robotics',
+      'Machine learning',
+      'Expert systems',
+      'Natural language processing'
+    ],
+    answer: 'Machine learning'
+  },
+  {
+    question: 'Which use case demonstrates ML’s ability to process natural language?',
+    options: [
+      "Identifying the artist, title, or genre of a song to create playlists based on the user's listening habits.",
+      'Detecting people and objects in surveillance footage to use as evidence in criminal cases.',
+      'Segmenting images into different parts or regions to extract information, such as the text on a sign.',
+      'Identifying the topic and sentiment of customer email messages so that they can be routed to the relevant department.'
+    ],
+    answer: 'Identifying the topic and sentiment of customer email messages so that they can be routed to the relevant department.'
+  },
+  {
+    question: 'You’re watching a video on YouTube and are shown a list of videos that YouTube thinks you are interested in. What ML solution powers this feature?',
+    options: [
+      'Clickbait detection',
+      'Personalized recommendations',
+      'Content moderation',
+      'Video transcription'
+    ],
+    answer: 'Personalized recommendations'
+  },
+  {
+    question: 'Which option refers to the use of technologies to build machines and computers that can mimic cognitive functions associated with human intelligence?',
+    options: [
+      'Deep learning',
+      'Natural language processing',
+      'Machine learning',
+      'Artificial intelligence'
+    ],
+    answer: 'Artificial intelligence'
+  },
+  {
+    question: 'Google\'s AI principles are a set of guiding values that help develop and use artificial intelligence responsibly. Which of these is one of Google’s AI principles?',
+    options: [
+      'AI should create or reinforce unfair bias.',
+      'AI should be socially beneficial.',
+      'AI should be accountable to other machines.',
+      'AI should be made available for any use.'
+    ],
+    answer: 'AI should be socially beneficial.'
+  },
+  {
+    question: 'What does the consistency dimension refer to when data quality is being measured?',
+    options: [
+      'Whether a dataset is free from duplicate values that could prevent an ML model from learning accurately.',
+      'Whether the data is up-to-date and reflects the current state of the phenomenon that is being modeled.',
+      'Whether the data is uniform and doesn’t contain any contradictory information.',
+      'Whether all the required information is present.'
+    ],
+    answer: 'Whether the data is uniform and doesn’t contain any contradictory information.'
+  },
+  {
+    question: 'Which dimension for measuring data quality means that the data conforms to a set of predefined standards and definitions such as type and format?',
+    options: [
+      'Uniqueness',
+      'Accuracy',
+      'Consistency',
+      'Validity'
+    ],
+    answer: 'Validity'
+  },
+  {
+    question: 'How do data analytics and business intelligence differ from AI and ML?',
+    options: [
+      'Data analytics and business intelligence are used only in small businesses, whereas AI and ML are used exclusively by large corporations.',
+      'Data analytics and business intelligence use automated decision-making processes, whereas AI and ML require human intervention and interpretation of data.',
+      'Data analytics and business intelligence involve advanced algorithms for predicting future trends, whereas AI and ML focus on processing historical data.',
+      'Data analytics and business intelligence identify trends from historical data, whereas AI and ML use data to make decisions for future business.'
+    ],
+    answer: 'Data analytics and business intelligence identify trends from historical data, whereas AI and ML use data to make decisions for future business.'
+  },
+  {
+    question: 'Google applies generative AI to products like Google Workspace, but what is generative AI?',
+    options: [
+      'A type of artificial intelligence that can make decisions and take actions.',
+      'A type of artificial intelligence that can understand and respond to human emotions.',
+      'A type of artificial intelligence that can create and sustain its own consciousness.',
+      'A type of artificial intelligence that can produce new content, including text, images, audio, and synthetic data.'
+    ],
+    answer: 'A type of artificial intelligence that can produce new content, including text, images, audio, and synthetic data.'
+  },
+  {
+    question: 'Which technology relies on models to analyze large amounts of data, learn from the insights, and then make predictions and informed decisions?',
+    options: [
+      'Robotics',
+      'Machine learning',
+      'Expert systems',
+      'Natural language processing'
+    ],
+    answer: 'Machine learning'
+  },
+  {
+    question: 'Which use case demonstrates ML’s ability to process natural language?',
+    options: [
+      "Identifying the artist, title, or genre of a song to create playlists based on the user's listening habits.",
+      'Detecting people and objects in surveillance footage to use as evidence in criminal cases.',
+      'Segmenting images into different parts or regions to extract information, such as the text on a sign.',
+      'Identifying the topic and sentiment of customer email messages so that they can be routed to the relevant department.'
+    ],
+    answer: 'Identifying the topic and sentiment of customer email messages so that they can be routed to the relevant department.'
+  },
+  {
+    question: 'You’re watching a video on YouTube and are shown a list of videos that YouTube thinks you are interested in. What ML solution powers this feature?',
+    options: [
+      'Clickbait detection',
+      'Personalized recommendations',
+      'Content moderation',
+      'Video transcription'
+    ],
+    answer: 'Personalized recommendations'
+  },
+  {
+    question: 'Which option refers to the use of technologies to build machines and computers that can mimic cognitive functions associated with human intelligence?',
+    options: [
+      'Deep learning',
+      'Natural language processing',
+      'Machine learning',
+      'Artificial intelligence'
+    ],
+    answer: 'Artificial intelligence'
+  },
+  {
+    question: 'Google\'s AI principles are a set of guiding values that help develop and use artificial intelligence responsibly. Which of these is one of Google’s AI principles?',
+    options: [
+      'AI should create or reinforce unfair bias.',
+      'AI should be socially beneficial.',
+      'AI should be accountable to other machines.',
+      'AI should be made available for any use.'
+    ],
+    answer: 'AI should be socially beneficial.'
+  },
+  {
+    question: 'What does the consistency dimension refer to when data quality is being measured?',
+    options: [
+      'Whether a dataset is free from duplicate values that could prevent an ML model from learning accurately.',
+      'Whether the data is up-to-date and reflects the current state of the phenomenon that is being modeled.',
+      'Whether the data is uniform and doesn’t contain any contradictory information.',
+      'Whether all the required information is present.'
+    ],
+    answer: 'Whether the data is uniform and doesn’t contain any contradictory information.'
+  },
+  {
+    question: 'Artificial intelligence is best suited for replacing or simplifying rule-based systems. Which is an example of this in action?',
+    options: [
+      'Using a reinforcement learning algorithm to train autonomous drones for package delivery.',
+      'Using AI to replace a human decision-maker in complex situations, such as those involving life-or-death choices.',
+      'Training a machine learning model to predict a search result ranking.',
+      'Implementing AI to develop a new product or service that has never been seen before.'
+    ],
+    answer: 'Using a reinforcement learning algorithm to train autonomous drones for package delivery.'
+  },
+  [
+    {
+      question: 'Which Google Cloud AI solution is designed to help businesses improve their customer service?',
+      options: [
+        'Discovery AI for Retail',
+        'Document AI',
+        'Cloud Talent Solution',
+        'Contact Center AI'
+      ],
+      answer: 'Contact Center AI'
+    },
+    {
+      question: 'Which Google Cloud AI solution is designed to help businesses automate document processing?',
+      options: [
+        'Document AI',
+        'Cloud Talent Solution',
+        'Contact Center AI',
+        'Discovery AI for Retail'
+      ],
+      answer: 'Document AI'
+    },
+    {
+      question: 'Google Cloud offers four options for building machine learning models. Which is best when a business wants to code their own machine learning environment, the training, and the deployment?',
+      options: [
+        'Custom training',
+        'AutoML',
+        'BigQuery ML',
+        'Pre-trained APIs'
+      ],
+      answer: 'Custom training'
+    },
+    {
+      question: 'Which feature of Vertex AI lets users build and train end-to-end machine learning models by using a GUI (graphical user interface), without writing a line of code.',
+      options: [
+        'AutoML',
+        'Managed ML environment',
+        'Custom training',
+        'MLOps'
+      ],
+      answer: 'AutoML'
+    },
+    {
+      question: 'A large media company wants to improve how they moderate online content. Currently, they have a team of human moderators that review content for appropriateness, but are looking to leverage artificial intelligence to improve efficiency. Which of Google’s pre-trained APIs could they use to identify and remove inappropriate content from the media company\'s website and social media platforms.',
+      options: [
+        'Video Intelligence API',
+        'Speech-to-Text API',
+        'Vision API',
+        'Natural Language API'
+      ],
+      answer: 'Natural Language API'
+    },
+    {
+      question: 'What’s the name of Google’s application-specific integrated circuit (ASIC) that is used to accelerate machine learning workloads?',
+      options: [
+        'Tensor Processing Unit (TPU)',
+        'Vertex Processing Unit (VPU)',
+        'Central Processing Unit (CPU)',
+        'Graphic Processing Unit (GPU)'
+      ],
+      answer: 'Tensor Processing Unit (TPU)'
+    },
+    {
+      question: 'An online retailer wants to help users find specific products faster on their website. One idea is to allow shoppers to upload an image of the product they’re looking to purchase. Which of Google’s pre-trained APIs could the retailer use to expand this functionality?',
+      options: [
+        'Natural Language API',
+        'Vision API',
+        'Video Intelligence API',
+        'Speech-to-Text API'
+      ],
+      answer: 'Vision API'
+    },
+    {
+      question: 'BigQuery ML is a machine learning service that lets users:',
+      options: [
+        'Build and evaluate machine learning models in BigQuery by using SQL.',
+        'Seamlessly connect with a data science team to create an ML model.',
+        'Export small amounts of data to spreadsheets or other applications.',
+        'Build and evaluate machine learning models in BigQuery by using Python and Java.'
+      ],
+      answer: 'Build and evaluate machine learning models in BigQuery by using SQL.'
+    }
+  ],
 ];
 
 // Fungsi untuk mengacak array
