@@ -725,8 +725,338 @@ const questions = [
         'Build and evaluate machine learning models in BigQuery by using Python and Java.'
       ],
       answer: 'Build and evaluate machine learning models in BigQuery by using SQL.'
+    },
+    {
+      "question": "App Engine, Cloud Functions and Cloud Run are all what type of Google Cloud compute option?",
+      "options": [
+        "Software computing",
+        "Serverless computing",
+        "Hybrid computing",
+        "VM-based computing"
+      ],
+      "answer": "Serverless computing"
+    },
+    {
+      "question": "What do containers recreate or virtualize?",
+      "options": [
+        "Operating systems",
+        "Virtual machines",
+        "Hypervisor",
+        "Hardware"
+      ],
+      "answer": "Operating systems"
+    },
+    {
+      "question": "Aarav is a Chief Technical Officer and is considering using public cloud services, specifically to modernize their company’s IT infrastructure. Which of the following can Aarav use to build a business case for using an Infrastructure-as-a-Service (IaaS) solution?",
+      "options": [
+        "Web application security is managed by the cloud provider.",
+        "IT expenditure shifts from operational to capital.",
+        "Computer hardware shifts from hybrid to on-premises.",
+        "Maintenance work is outsourced to the cloud provider."
+      ],
+      "answer": "Maintenance work is outsourced to the cloud provider."
+    },
+    {
+      "question": "Which specific cloud computing feature helps businesses serve their customers without service interruption and in a cost-effective way?",
+      "options": [
+        "Elasticity",
+        "On-demand service",
+        "Large Network Access",
+        "Agility"
+      ],
+      "answer": "Elasticity"
+    },
+    {
+      "question": "A national hotel chain is using a combination of on-premises data centers and public cloud services for their IT infrastructure. What type of IT infrastructure model is this?",
+      "options": [
+        "Virtualization",
+        "Hybrid cloud",
+        "Colocation",
+        "Multi-cloud"
+      ],
+      "answer": "Hybrid cloud"
+    },
+    {
+      question: 'The technology team of a pharmaceutical business decides to adopt an automated continuous integration and deployment (CI/CD) approach. What is the primary value of using a CI/CD approach for the overall business?',
+      options: [
+        'It allows developers to build using APIs.',
+        'It prevents infrastructure failures and downtime.',
+        'It improves security of services and solutions.',
+        'It increases application release velocity and reliability.'
+      ],
+      answer: 'It increases application release velocity and reliability.'
+    },
+    {
+      question: 'What is App Engine?',
+      options: [
+        'An application for visibility and management into backend software platforms.',
+        'A platform for managing the software and infrastructure required to run your code.',
+        'An application for powering the hardware and data services for scalable features.',
+        'A platform for building scalable web applications and mobile backends.'
+      ],
+      answer: 'A platform for building scalable web applications and mobile backends.'
+    },
+    {
+      question: 'A financial services firm wants to migrate an existing application to the cloud but doesn’t want to risk service downtime. For this reason, they have chosen to opt for redundancy and build a new application in the cloud while continuing to run their old application on-premises. Which standard pattern of cloud migration describes this scenario?',
+      options: [
+        'Move then change',
+        'Change then move',
+        'Invent in brownfield',
+        'Invent in greenfield'
+      ],
+      answer: 'Invent in brownfield'
+    },
+    {
+      question: 'Sajid is a developer for an online apparel retail company. What kind of architecture should he use for the applications he develops, and why?',
+      options: [
+        'Monolithic pattern, because it’s modular and therefore easy to update.',
+        'Microservice pattern, because it’s modular and therefore easy to update.',
+        'API gateway pattern, because it’s modular and therefore easy to update.',
+        'Client-server pattern, because it’s modular and therefore easy to update.'
+      ],
+      answer: 'Microservice pattern, because it’s modular and therefore easy to update.'
+    },
+    {
+      question: 'What is Google Kubernetes Engine (GKE)?',
+      options: [
+        'An open-source virtual machine (VM) integration system.',
+        'A Google Cloud managed service for virtual machine (VM) integration.',
+        'An open-source container-orchestration system.',
+        'A Google Cloud managed service for container orchestration.'
+      ],
+      answer: 'A Google Cloud managed service for container orchestration.'
+    },
+    {
+      question: 'What is the function of APIs?',
+      options: [
+        'They provide real-time analytics.',
+        'They offer hybrid data storage.',
+        'They enable integration between systems.',
+        'They enable rapid autoscaling of data.'
+      ],
+      answer: 'They enable integration between systems.'
+    },
+    {
+      question: 'Michelle wants to manage her team\'s APIs and provide security policies for identity verification, authentication, and access control. What Google Cloud solution should she choose?',
+      options: [
+        'BigQuery',
+        'Google Kubernetes Engine',
+        'Apigee',
+        'Cloud Identity'
+      ],
+      answer: 'Apigee'
+    },
+    {
+      question: 'Why do legacy systems struggle to meet modern consumer expectations?',
+      options: [
+        'They rapidly surpass physical capacity.',
+        'They only serve real-time data.',
+        'They scale slowly.',
+        'They ineffectively process batch data.'
+      ],
+      answer: 'They scale slowly.'
+    },
+    {
+      question: 'What is a critical outcome of API management?',
+      options: [
+        'Measuring and tracking business performance.',
+        'Updating and repairing outdated business components.',
+        'Digitizing and modernizing siloed business data.',
+        'Distributing and creating regular new business features.'
+      ],
+      answer: 'Measuring and tracking business performance.'
+    },
+    {
+      question: 'How can businesses use APIs to unlock value from their legacy systems?',
+      options: [
+        'By gaining access to data stored in legacy systems.',
+        'By re-architecting their legacy systems.',
+        'By monitoring cloud resource usage of new applications.',
+        'By analyzing data from new applications.'
+      ],
+      answer: 'By gaining access to data stored in legacy systems.'
     }
   ],
+  {
+    question: 'Which cybersecurity threat demands a ransom payment from a victim to regain access to their files and systems?',
+    options: [
+      'Ransomware',
+      'Trojan',
+      'Virus',
+      'Spyware'
+    ],
+    answer: 'Ransomware'
+  },
+  {
+    question: 'Which definition best describes a firewall?',
+    options: [
+      'A security model that assumes no user or device can be trusted by default',
+      'A software program that encrypts data to make it unreadable to unauthorized users',
+      'A set of security measures designed to protect a computer system or network from cyber attacks',
+      'A network security device that monitors and controls incoming and outgoing network traffic based on predefined security rules'
+    ],
+    answer: 'A network security device that monitors and controls incoming and outgoing network traffic based on predefined security rules'
+  },
+  {
+    question: 'Which cloud security principle ensures that security practices and measures align with established standards and guidelines?',
+    options: [
+      'Compliance',
+      'Integrity',
+      'Control',
+      'Confidentiality'
+    ],
+    answer: 'Compliance'
+  },
+  {
+    question: 'Which cybersecurity threat occurs when errors arise during the setup of resources, inadvertently exposing sensitive data and systems to unauthorized access?',
+    options: [
+      'Malware',
+      'Phishing',
+      'Configuration mishaps',
+      'Virus'
+    ],
+    answer: 'Configuration mishaps'
+  },
+  {
+    question: 'Which is a benefit of cloud security over traditional on-premises security?',
+    options: [
+      'Large upfront capital investment.',
+      'Only having to install security updates on a weekly basis.',
+      'Increased scalability.',
+      'Having physical access to hardware.'
+    ],
+    answer: 'Increased scalability.'
+  },
+  {
+    question: 'Which three essential aspects of cloud security form the foundation of the CIA triad?',
+    options: [
+      'Confidentiality, integrity, and availability',
+      'Certificates, intelligence, and authentication',
+      'Containers, infrastructure, and architecture',
+      'Compliance, identity, and access management'
+    ],
+    answer: 'Confidentiality, integrity, and availability'
+  },
+  {
+    question: 'Which cloud security principle relates to keeping data accurate and trustworthy?',
+    options: [
+      'Integrity',
+      'Control',
+      'Compliance',
+      'Confidentiality'
+    ],
+    answer: 'Integrity'
+  },
+  {
+    question: 'Which security principle advocates granting users only the access they need to perform their job responsibilities?',
+    options: [
+      'Security by default',
+      'Zero-trust architecture',
+      'Least privilege',
+      'Privileged access'
+    ],
+    answer: 'Least privilege'
+  },
+  {
+    question: 'What common cybersecurity threat involves tricking users into revealing sensitive information or performing actions that compromise security?',
+    options: [
+      'Malware',
+      'Configuration mishap',
+      'Ransomware',
+      'Phishing'
+    ],
+    answer: 'Phishing'
+  },
+  {
+    question: 'Which is the responsibility of the cloud provider in a cloud security model?',
+    options: [
+      'Maintaining the customer\'s infrastructure.',
+      'Configuring the customer\'s applications.',
+      'Managing the customer\'s user access.',
+      'Securing the customer\'s data.'
+    ],
+    answer: 'Maintaining the customer\'s infrastructure.'
+  },
+  {
+    question: 'What Google Cloud product provides robust protection from harmful distributed denial-of-service (DDoS) attacks?',
+    options: [
+      'Cloud Monitoring',
+      'Google Cloud Armor',
+      'Cloud Load Balancing',
+      'IAM'
+    ],
+    answer: 'Google Cloud Armor'
+  },
+  {
+    question: 'What security feature adds an extra layer of protection to cloud-based systems?',
+    options: [
+      'Two-step verification (2SV)',
+      'Data loss prevention (DLP)',
+      'Firewall as a service (FaaS)',
+      'Security information and event management (SIEM)'
+    ],
+    answer: 'Two-step verification (2SV)'
+  },
+  {
+    question: 'Select the correct statement about Identity and Access Management (IAM).',
+    options: [
+      'IAM is a cloud service that encrypts cloud-based data at rest and in transit.',
+      'IAM provides granular control over who has access to Google Cloud resources and what they can do with those resources.',
+      'IAM is a system that detects and prevents malicious traffic from entering a cloud network.',
+      'IAM is a cloud security information and event management solution that collects and analyzes log data from cloud security devices and applications.'
+    ],
+    answer: 'IAM provides granular control over who has access to Google Cloud resources and what they can do with those resources.'
+  },
+  {
+    question: 'What metric does Google Cloud use to measure the efficiency of its data centers to achieve cost savings and a reduced carbon footprint?',
+    options: [
+      'Total cost of ownership (TCO)',
+      'Energy Efficiency Ratio (EER)',
+      'Power Usage Effectiveness (PUE)',
+      'Data Center Infrastructure Efficiency (DCiE)'
+    ],
+    answer: 'Power Usage Effectiveness (PUE)'
+  },
+  {
+    question: 'Which aspect of cloud identity management verifies the identity of users or systems?',
+    options: [
+      'Authentication',
+      'Authorization',
+      'Accounting',
+      'Auditing'
+    ],
+    answer: 'Authentication'
+  },
+  {
+    question: 'Which practice involves a combination of processes and technologies that help reduce the risk of data breaches, system outages, and other security incidents in the cloud?',
+    options: [
+      'Security operations (SecOps)',
+      'Site reliability engineering (SRE)',
+      'Zero trust security',
+      'Cloud security posture management (CSPM)'
+    ],
+    answer: 'Security operations (SecOps)'
+  },
+  {
+    question: 'Google Cloud encrypts data at various states. Which state refers to when data is being actively processed by a computer?',
+    options: [
+      'Data in use',
+      'Data in transit',
+      'Data at rest',
+      'Data lake'
+    ],
+    answer: 'Data in use'
+  },
+  {
+    question: 'Which is a powerful encryption algorithm trusted by governments and businesses worldwide?',
+    options: [
+      'Post-quantum cryptography (PQC)',
+      'Advanced Encryption Standard (AES)',
+      'Lattice-Based Cryptography (LBC)',
+      'Isomorphic encryption (IE)'
+    ],
+    answer: 'Advanced Encryption Standard (AES)'
+  }
 ];
 
 // Fungsi untuk mengacak array
