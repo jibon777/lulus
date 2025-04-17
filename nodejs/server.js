@@ -69,12 +69,13 @@ const questions = [
       'Data cloud provides a unified solution to manage data across the entire data lifecycle.',
       'A trusted cloud gives control of all resources to the user to ensure high availability at all times.',
       'Collaboration cloud ensures that the device a user connects with only works on the corporate network.',
-      'Sustainable cloud ensures the costs of cloud resources are controlled to prevent budget overrun.'
+      'Sustainable cloud ensures the costs of cloud resources are controlled to prevent budget overrun.',
     ],
-    answer: 
-    'Open infrastructure gives the freedom to innovate by running applications in the place that makes the most sense.',
-    'Data cloud provides a unified solution to manage data across the entire data lifecycle.',
-  },
+    answer: [
+      'Open infrastructure gives the freedom to innovate by running applications in the place that makes the most sense.',
+      'Data cloud provides a unified solution to manage data across the entire data lifecycle.',
+    ],
+ },
   {
     question: 'As the world and business changes, organizations have to decide between embracing new technology and transforming, or keeping their technology and approaches the same. What risks might an organization face by not transforming as their market evolves?',
     options: [
@@ -103,7 +104,7 @@ const questions = [
       'Public Cloud',
       'Platform as a service',
     ],
-    answer: 'Private Cloud'',
+    answer: 'Private Cloud',
   },
 ];
 
