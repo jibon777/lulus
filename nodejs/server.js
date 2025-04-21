@@ -1,14 +1,32 @@
 const express = require('express');
 const cors = require('cors');
-
 const app = express();
 const port = 5000;
 
-// Middleware
 app.use(cors());
-app.use(express.json());
 
-// Daftar soal dengan pilihan ganda
+// Fungsi Fisher-Yates untuk mengacak array
+function shuffleArray(input) {
+  if (!Array.isArray(input)) return [];
+  const array = [...input];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Fungsi untuk filter soal unik berdasarkan text pertanyaan
+function getUniqueQuestions(arr) {
+  const seen = new Set();
+  return arr.filter((q) => {
+    if (seen.has(q.question)) return false;
+    seen.add(q.question);
+    return true;
+  });
+}
+
+
 const questions = [
   {
     question: 'What is the cloud?',
@@ -18,9 +36,7 @@ const questions = [
       'A metaphor for a network of data centers.',
       'A metaphor for the networking capability of internet providers.',
     ],
-    answer: [
-      'A metaphor for a network of data centers.',
-    ],
+    answer:'A metaphor for a network of data centers.',
  },
   {
     question: 'What is the benefit of implementing a transformation cloud that is based on open infrastructure?',
@@ -75,7 +91,7 @@ const questions = [
       'Open infrastructure gives the freedom to innovate by running applications in the place that makes the most sense.',
       'Data cloud provides a unified solution to manage data across the entire data lifecycle.',
     ],
- },
+  },
   {
     question: 'As the world and business changes, organizations have to decide between embracing new technology and transforming, or keeping their technology and approaches the same. What risks might an organization face by not transforming as their market evolves?',
     options: [
@@ -211,7 +227,8 @@ const questions = [
     options: [
       'Third-party data',
       'First-party data',
-      'Second-party data'
+      'Second-party data',
+      'Fourth-party data'
     ],
     answer: 'First-party data'
   },
@@ -1056,23 +1073,267 @@ const questions = [
       'Isomorphic encryption (IE)'
     ],
     answer: 'Advanced Encryption Standard (AES)'
+  },
+  {
+    question: "Which is one of Google Cloud’s seven trust principles?",
+    options: [
+      "Google sells customer data to third parties.",
+      "We give \"backdoor\" access to government entities when requested.",
+      "Google Cloud uses customer data for advertising.",
+      "All customer data is encrypted by default."
+    ],
+    answer: "All customer data is encrypted by default."
+  },
+  {
+    question: "Which term describes the concept that data is subject to the laws and regulations of the country where it resides?",
+    options: [
+      "Data sovereignty",
+      "Data redundancy",
+      "Data consistency",
+      "Data residency"
+    ],
+    answer: "Data sovereignty"
+  },
+  {
+    question: "Which report provides a way for Google Cloud to share data about how the policies and actions of governments and corporations affect privacy, security, and access to information?",
+    options: [
+      "Security reports",
+      "Billing reports",
+      "Compliance reports",
+      "Transparency reports"
+    ],
+    answer: "Transparency reports"
+  },
+  {
+    question: "Which Google Cloud feature allows users to control their data's physical location?",
+    options: [
+      "Districts",
+      "Places",
+      "Areas",
+      "Regions"
+    ],
+    answer: "Regions"
+  },
+  {
+    question: "Where can you find details about certifications and compliance standards met by Google Cloud?",
+    options: [
+      "Compliance resource center",
+      "Cloud Storage client libraries",
+      "Google Cloud console",
+      "Marketplace"
+    ],
+    answer: "Compliance resource center"
+  },
+  {
+    question: 'Which Google Cloud tool lets you estimate how changes to cloud usage will affect costs?',
+    options: [
+      'Cloud Billing',
+      'Cloud Monitoring',
+      'Google Cloud Pricing Calculator',
+      'Cloud Trace'
+    ],
+    answer: 'Google Cloud Pricing Calculator'
+  },
+  {
+    question: 'Why is it a benefit that the Google Cloud resource hierarchy follows inheritance and propagation rules?',
+    options: [
+      'Faster propagation can simplify a cloud migration.',
+      'Inheritance in the hierarchy reduces the overall cost of cloud computing.',
+      'Resources at lower levels can improve the performance of cloud applications.',
+      'Permissions set at higher levels of the resource hierarchy are automatically inherited by lower-level resources.'
+    ],
+    answer: 'Permissions set at higher levels of the resource hierarchy are automatically inherited by lower-level resources.'
+  },
+  {
+    question: 'Which feature lets you set limits on the amount of resources that can be used by a project or user?',
+    options: [
+      'Invoicing limits',
+      'Billing reports',
+      'Quota policies',
+      'Committed use discounts'
+    ],
+    answer: 'Quota policies'
+  },
+  {
+    question: 'Which feature lets you set alerts for when cloud costs exceed a certain limit?',
+    options: [
+      'Cost optimization recommendations',
+      'Billing reports',
+      'Cost forecasting',
+      'Budget threshold rules'
+    ],
+    answer: 'Budget threshold rules'
+  },
+  {
+    question: 'Which offers a reactive method to help you track and understand what you’ve already spent on Google Cloud resources and provide ways to help optimize your costs?',
+    options: [
+      'Cloud billing reports',
+      'Resource usage',
+      'Cost forecasting',
+      'Google Cloud Pricing Calculator'
+    ],
+    answer: 'Cloud billing reports'
+  },
+  {
+    question: 'Which represents the lowest level in the Google Cloud resource hierarchy?',
+    options: [
+      'Folders',
+      'Projects',
+      'Resources',
+      'Organization node'
+    ],
+    answer: 'Resources'
+  },
+  {
+    question: 'Which term describes a centralized hub within an organization composed of a partnership across finance, technology, and business functions?',
+    options: [
+      'Center of innovation',
+      'Competency center',
+      'Hub center',
+      'Center of excellence'
+    ],
+    answer: 'Center of excellence'
+  },
+  {
+    question: 'Whose job is to ensure the reliability, availability, and efficiency of software systems and services deployed in the cloud?',
+    options: [
+      'Cloud architect',
+      'Site reliability engineer',
+      'Cloud security engineer',
+      'DevOps engineer'
+    ],
+    answer: 'Site reliability engineer'
+  },
+  {
+    question: 'Why is escalating a support ticket not always the best course of action when trying to resolve an issue?',
+    options: [
+      'It can increase the monthly cost of support plans.',
+      'It can result in increased power consumption, impacting carbon neutrality.',
+      'It may disrupt the workflow of the Customer Care team and lead to delays in other cases.',
+      'It may reduce the number of available virtual machines.'
+    ],
+    answer: 'It may disrupt the workflow of the Customer Care team and lead to delays in other cases.'
+  },
+  {
+    question: 'One of the four golden signals is latency. What does latency measure?',
+    options: [
+      'How many requests reach a system.',
+      'How long it takes for a particular part of a system to return a result.',
+      'System failures or other issues.',
+      'How close to capacity a system is.'
+    ],
+    answer: 'How long it takes for a particular part of a system to return a result.'
+  },
+  {
+    question: 'Google Cloud Observability provides a comprehensive set of monitoring, logging, and diagnostics tools. Which tool collects latency data from applications and provides insights into how they’re performing?',
+    options: [
+      'Cloud Profiler',
+      'Cloud Trace',
+      'Cloud Logging',
+      'Cloud Monitoring'
+    ],
+    answer: 'Cloud Trace'
+  },
+  {
+    question: 'Which metric shows how well a system or service is performing?',
+    options: [
+      'Service level agreements',
+      'Service level contracts',
+      'Service level objectives',
+      'Service level indicators'
+    ],
+    answer: 'Service level indicators'
+  },
+  {
+    question: 'Which of these measures should be automated on a regular basis and stored in geographically separate locations to allow for rapid recovery from disasters or failures?',
+    options: [
+      'Inventory data',
+      'Security patches',
+      'Backups',
+      'Log files'
+    ],
+    answer: 'Backups'
+  },
+  {
+    question: 'What does the Cloud Profiler tool do?',
+    options: [
+      'It counts, analyzes, and aggregates the crashes in running cloud services in real-time.',
+      'It provides a comprehensive view of your cloud infrastructure and applications.',
+      'It collects and stores all application and infrastructure logs.',
+      'It identifies how much CPU power, memory, and other resources an application uses.'
+    ],
+    answer: 'It identifies how much CPU power, memory, and other resources an application uses.'
+  },
+  {
+    question: 'How does replication help the design of resilient and fault-tolerant infrastructure and processes in a cloud environment?',
+    options: [
+      'It creates multiple copies of data or services and distributes them across different servers or locations.',
+      'It monitors and controls incoming and outgoing network traffic based on predetermined security rules.',
+      'It duplicates critical components or resources to provide backup alternatives.',
+      'It scales infrastructure to handle varying workloads and accommodate increased demand.'
+    ],
+    answer: 'It creates multiple copies of data or services and distributes them across different servers or locations.'
+  },
+  {
+    question: 'Which Google Cloud Customer Care support level is designed for enterprises with critical workloads and features the fastest response time?',
+    options: [
+      'Premium Support',
+      'Basic Support',
+      'Enhanced Support',
+      'Standard Support'
+    ],
+    answer: 'Premium Support'
+  },
+  {
+    question: 'What sustainability goal does Google aim to achieve by the year 2030?',
+    options: [
+      'To be the first major company to achieve 100% renewable energy.',
+      'To be the first major company to run its own wind farm.',
+      'To be the first major company to operate completely carbon free.',
+      'To be the first major company to be carbon neutral.'
+    ],
+    answer: 'To be the first major company to operate completely carbon free.'
+  },
+  {
+    question: 'Google\'s data centers were the first to achieve ISO 14001 certification. What is this standard’s purpose?',
+    options: [
+      'It’s a framework for sustainable procurement, which is the process of purchasing goods and services in a way that minimizes environmental and social impacts.',
+      'It’s a framework for identifying, predicting, and evaluating the environmental impacts of a proposed project.',
+      'It’s a framework for an organization to enhance its environmental performance through improving resource efficiency and reducing waste.',
+      'It’s a framework for carbon footprinting that calculates the total amount of greenhouse gas emissions associated with a product, service, or organization.'
+    ],
+    answer: 'It’s a framework for an organization to enhance its environmental performance through improving resource efficiency and reducing waste.'
+  },
+  {
+    question: 'Kaluza is an electric vehicle smart-charging solution. How does it use BigQuery and Looker Studio?',
+    options: [
+      'It uses BigQuery and Looker Studio to containerize workloads.',
+      'It uses BigQuery and Looker Studio to build and deploy machine learning models.',
+      'It uses BigQuery and Looker Studio to create dashboards that provide granular operational insights.',
+      'It uses BigQuery and Looker Studio to comply with government regulations.'
+    ],
+    answer: 'It uses BigQuery and Looker Studio to create dashboards that provide granular operational insights.'
   }
 ];
 
-// Fungsi untuk mengacak array
-function shuffleArray(arr) {
-  return arr.sort(() => Math.random() - 0.5);
-}
 
-// Endpoint untuk mendapatkan soal dengan pilihan acak dan urutan soal acak
+// Endpoint untuk soal
 app.get('/questions', (req, res) => {
-  // Acak urutan soal dan pilihan jawaban untuk setiap soal
-  const shuffledQuestions = shuffleArray(questions).map(question => ({
-    ...question,
-    options: shuffleArray(question.options) // Mengacak pilihan jawaban untuk setiap soal
+  if (!Array.isArray(questions)) {
+    return res.status(500).json({ error: 'Soal tidak tersedia' });
+  }
+
+  // 1. Filter soal unik
+  const unique = getUniqueQuestions(questions);
+
+  // 2. Acak urutan soal dan pilihan jawaban
+  const shuffled = shuffleArray(unique).map(q => ({
+    ...q,
+    options: shuffleArray(q.options)
   }));
 
-  res.json(shuffledQuestions);
+  res.setHeader('Content-Type', 'application/json');
+  res.json(shuffled);
 });
 
 // Jalankan server
