@@ -34,7 +34,7 @@ const questions = [
       'A Google product for computing large amounts of data.',
       'A Google product made up of on-premises IT infrastructure.',
       'A metaphor for a network of data centers.',
-      'A metaphor for the networking capability of internet providers.',
+      'A metaphor for the networking capability of internet providers.'
     ],
     answer:'A metaphor for a network of data centers.',
  },
@@ -118,7 +118,7 @@ const questions = [
       'Private Cloud',
       'Software as a service',
       'Public Cloud',
-      'Platform as a service',
+      'Platform as a service'
     ],
     answer: 'Private Cloud',
   },
@@ -1293,16 +1293,6 @@ const questions = [
       'To be the first major company to be carbon neutral.'
     ],
     answer: 'To be the first major company to operate completely carbon free.'
-  },
-  {
-    question: 'Google\'s data centers were the first to achieve ISO 14001 certification. What is this standard’s purpose?',
-    options: [
-      'It’s a framework for sustainable procurement, which is the process of purchasing goods and services in a way that minimizes environmental and social impacts.',
-      'It’s a framework for identifying, predicting, and evaluating the environmental impacts of a proposed project.',
-      'It’s a framework for an organization to enhance its environmental performance through improving resource efficiency and reducing waste.',
-      'It’s a framework for carbon footprinting that calculates the total amount of greenhouse gas emissions associated with a product, service, or organization.'
-    ],
-    answer: 'It’s a framework for an organization to enhance its environmental performance through improving resource efficiency and reducing waste.'
   },
   {
     question: 'Kaluza is an electric vehicle smart-charging solution. How does it use BigQuery and Looker Studio?',
