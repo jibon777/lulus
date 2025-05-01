@@ -6,159 +6,205 @@ function App() {
   const [userAnswer, setUserAnswer] = useState([]);
   const [isAnswered, setIsAnswered] = useState(false);
   const [error, setError] = useState('');
-  const [correctCount, setCorrectCount] = useState(0);
-  const [wrongCount, setWrongCount] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
+  const [score, setScore] = useState(0);
+  const [page, setPage] = useState('home'); // halaman: home, quiz, result
 
   useEffect(() => {
     fetch('http://localhost:5000/questions')
       .then((res) => res.json())
-      .then((data) => setQuestions(data))
+      .then((data) => {
+        if (!Array.isArray(data)) throw new Error('Data tidak valid');
+        const validQuestions = data.filter(
+          (q) =>
+            q &&
+            typeof q.question === 'string' &&
+            q.question.trim() !== '' &&
+            Array.isArray(q.options) &&
+            q.options.length > 0 &&
+            q.answer !== undefined &&
+            q.answer !== null &&
+            (Array.isArray(q.answer) ? q.answer.length > 0 : true)
+        );
+        setQuestions(validQuestions);
+      })
       .catch(() => setError('Gagal memuat pertanyaan.'));
   }, []);
 
+  const getCorrectAnswers = () => {
+    const raw = questions[currentQuestion]?.answer;
+    return Array.isArray(raw) ? raw : [raw];
+  };
+
   const handleAnswer = (answer) => {
     if (isAnswered || !questions[currentQuestion]) return;
-    
-    let correctAnswers = questions[currentQuestion]?.answer || [];
-    if (!Array.isArray(correctAnswers)) correctAnswers = [correctAnswers];
-    
-    if (userAnswer.includes(answer)) {
-      setUserAnswer(userAnswer.filter((ans) => ans !== answer));
+
+    const correctAnswers = getCorrectAnswers();
+    const isMultipleChoice = correctAnswers.length > 1;
+
+    if (!isMultipleChoice) {
+      setUserAnswer([answer]);
       setError('');
     } else {
-      if (correctAnswers.length === 0) {
-        setError('Tidak ada jawaban yang bisa dipilih.');
-        return;
-      }
-      if (userAnswer.length < correctAnswers.length) {
-        setUserAnswer([...userAnswer, answer]);
-        setError('');
+      if (userAnswer.includes(answer)) {
+        setUserAnswer(userAnswer.filter((ans) => ans !== answer));
       } else {
-        setError(`Anda hanya dapat memilih ${correctAnswers.length} jawaban.`);
+        setUserAnswer([...userAnswer, answer]);
       }
+      setError('');
     }
   };
 
   const checkAnswer = () => {
     if (!questions[currentQuestion]) return;
-    let correctAnswers = questions[currentQuestion]?.answer || [];
-    if (!Array.isArray(correctAnswers)) correctAnswers = [correctAnswers];
-    
-    if (userAnswer.length !== correctAnswers.length) {
-      setError(`Anda harus memilih ${correctAnswers.length} jawaban.`);
+
+    const correctAnswers = getCorrectAnswers();
+
+    if (userAnswer.length === questions[currentQuestion]?.options?.length) {
+      setError('Anda tidak boleh memilih semua jawaban!');
       return;
     }
-    
-    const isCorrect = userAnswer.every((ans) => correctAnswers.includes(ans)) &&
-                      correctAnswers.every((ans) => userAnswer.includes(ans));
-    
+
+    const isCorrect =
+      userAnswer.every((ans) => correctAnswers.includes(ans)) &&
+      userAnswer.length === correctAnswers.length;
+
     if (isCorrect) {
-      setCorrectCount((prev) => prev + 1);
-    } else {
-      setWrongCount((prev) => prev + 1);
+      setScore((prev) => prev + 1);
     }
-    
+
     setIsAnswered(true);
   };
 
   const nextQuestion = () => {
     if (!isAnswered) return;
+
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
       setUserAnswer([]);
       setIsAnswered(false);
       setError('');
     } else {
-      setIsFinished(true);
+      setTimeout(() => {
+        setPage('result'); // Pergi ke halaman hasil setelah kuis selesai
+      }, 100);
     }
   };
+
+  const startQuiz = () => {
+    setPage('quiz');
+    setCurrentQuestion(0);
+    setUserAnswer([]);
+    setIsAnswered(false);
+    setScore(0);
+    setError('');
+  };
+
+  const restartQuiz = () => {
+    setPage('quiz');
+    setCurrentQuestion(0);
+    setUserAnswer([]);
+    setIsAnswered(false);
+    setScore(0);
+    setError('');
+  };
+
+  if (page === 'home') {
+    return (
+      <div className="App" style={{ textAlign: 'center', padding: '20px' }}>
+        <h1>Selamat Datang di Kuis Pilihan Ganda</h1>
+        <button onClick={startQuiz} style={{ padding: '10px 20px', cursor: 'pointer' }}>
+          Mulai Kuis
+        </button>
+      </div>
+    );
+  }
+
+  if (page === 'result') {
+    return (
+      <div className="App" style={{ textAlign: 'center', padding: '20px' }}>
+        <h1>Kuis Selesai!</h1>
+        <h3>Skor Anda: {score}/{questions.length}</h3>
+        <button onClick={restartQuiz} style={{ padding: '10px 20px', cursor: 'pointer' }}>
+          Mulai Ulang Kuis
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="App" style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Kuis Pilihan Ganda</h1>
-      {!isFinished ? (
-        <>
-          <h3>Jumlah Soal: {questions.length}</h3>
-          <h3>Skor: {correctCount}/{questions.length}</h3>
-          {questions.length > 0 && questions[currentQuestion] && (
-            <div>
-              <h2>{questions[currentQuestion]?.question}</h2>
-              {questions[currentQuestion]?.instruction && <p>{questions[currentQuestion]?.instruction}</p>}
-              <div>
-                {questions[currentQuestion]?.options?.map((option, index) => {
-                  const optionLetter = String.fromCharCode(65 + index);
-                  let correctAnswers = questions[currentQuestion]?.answer || [];
-                  if (!Array.isArray(correctAnswers)) correctAnswers = [correctAnswers];
-                  const isCorrect = correctAnswers.includes(option);
-                  const isSelected = userAnswer.includes(option);
-                  
-                  let backgroundColor = '';
-                  let textColor = 'black';
-                  let fontWeight = 'normal';
-                  
-                  if (isAnswered) {
-                    if (isCorrect) {
-                      backgroundColor = 'green';
-                      fontWeight = 'bold';
-                    } else if (isSelected) {
-                      backgroundColor = 'red';
-                      textColor = 'white';
-                    }
-                  } else {
-                    backgroundColor = isSelected ? '#17a2b8' : '';
-                  }
+      {error && <p style={{ color: 'red' }}>{error}</p>}
 
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => handleAnswer(option)}
-                      style={{
-                        backgroundColor,
-                        color: textColor,
-                        display: 'flex',
-                        alignItems: 'center',
-                        margin: '10px auto',
-                        padding: '10px 20px',
-                        fontSize: '16px',
-                        width: '80%',
-                        cursor: isAnswered ? 'not-allowed' : 'pointer',
-                        borderRadius: '5px',
-                        border: '2px solid #ccc',
-                        fontWeight,
-                      }}
-                      disabled={isAnswered}
-                    >
-                      <span style={{ marginRight: '10px', fontWeight: 'bold' }}>{optionLetter}.</span>
-                      {option}
-                    </button>
-                  );
-                })}
-              </div>
-              {error && <p style={{ color: 'red' }}>{error}</p>}
-              {!isAnswered && (
-                <button onClick={checkAnswer} disabled={userAnswer.length === 0} style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>
-                  Konfirmasi Jawaban
+      <h3>Jumlah Soal: {questions.length}</h3>
+      <h3>Skor: {score}</h3>
+      {questions.length > 0 && (
+        <h3>Soal {currentQuestion + 1} dari {questions.length}</h3>
+      )}
+
+      {questions.length > 0 && questions[currentQuestion] && (
+        <div>
+          <h2>{questions[currentQuestion].question}</h2>
+          {questions[currentQuestion].instruction && <p>{questions[currentQuestion].instruction}</p>}
+          <div>
+            {questions[currentQuestion].options?.map((option, index) => {
+              const optionLetter = String.fromCharCode(65 + index);
+              const correctAnswers = getCorrectAnswers();
+              const isCorrect = correctAnswers.includes(option);
+              const isSelected = userAnswer.includes(option);
+
+              let backgroundColor = '';
+              if (isAnswered) {
+                backgroundColor = isCorrect ? 'green' : isSelected ? 'red' : '';
+              } else {
+                backgroundColor = isSelected ? '#17a2b8' : '';
+              }
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleAnswer(option)}
+                  style={{
+                    backgroundColor,
+                    color: 'black',
+                    display: 'flex',
+                    alignItems: 'center',
+                    margin: '10px auto',
+                    padding: '10px 20px',
+                    fontSize: '16px',
+                    width: '80%',
+                    cursor: isAnswered ? 'not-allowed' : 'pointer',
+                    borderRadius: '5px',
+                    border: '2px solid #ccc',
+                  }}
+                  disabled={isAnswered}
+                >
+                  <span style={{ marginRight: '10px', fontWeight: 'bold' }}>{optionLetter}.</span>
+                  {option}
                 </button>
-              )}
-              {isAnswered && (
-                <button onClick={nextQuestion} style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>
-                  Pertanyaan Selanjutnya
-                </button>
-              )}
-            </div>
+              );
+            })}
+          </div>
+
+          {!isAnswered && (
+            <button
+              onClick={checkAnswer}
+              disabled={userAnswer.length === 0}
+              style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}
+            >
+              Konfirmasi Jawaban
+            </button>
           )}
-        </>
-      ) : (
-        <>
-          <h2>Kuis Selesai!</h2>
-          <h3>Skor Akhir: {correctCount}/{questions.length}</h3>
-          <h3>Persentase Benar: {((correctCount / questions.length) * 100).toFixed(2)}%</h3>
-          <h3>Persentase Salah: {((wrongCount / questions.length) * 100).toFixed(2)}%</h3>
-          <button onClick={() => window.location.reload()} style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>
-            Mulai Lagi
-          </button>
-        </>
+
+          {isAnswered && (
+            <button
+              onClick={nextQuestion}
+              style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}
+            >
+              Pertanyaan Selanjutnya
+            </button>
+          )}
+        </div>
       )}
     </div>
   );

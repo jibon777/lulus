@@ -5,7 +5,7 @@ const port = 5000;
 
 app.use(cors());
 
-// Fungsi Fisher-Yates untuk mengacak array
+// Fungsi untuk mengacak array (Fisher-Yates)
 function shuffleArray(input) {
   if (!Array.isArray(input)) return [];
   const array = [...input];
@@ -16,18 +16,21 @@ function shuffleArray(input) {
   return array;
 }
 
-// Fungsi untuk filter soal unik berdasarkan text pertanyaan
-function getUniqueQuestions(arr) {
+// Fungsi untuk menghapus soal duplikat berdasarkan teks pertanyaan
+function removeDuplicateQuestions(questions) {
   const seen = new Set();
-  return arr.filter((q) => {
-    if (seen.has(q.question)) return false;
-    seen.add(q.question);
-    return true;
+  return questions.filter((q) => {
+    if (seen.has(q.question)) {
+      return false;
+    } else {
+      seen.add(q.question);
+      return true;
+    }
   });
 }
 
 
-const questions = [
+const rawQuestions = [
   {
     question: 'What is the cloud?',
     options: [
@@ -1304,21 +1307,22 @@ const questions = [
     ],
     answer: 'It uses BigQuery and Looker Studio to create dashboards that provide granular operational insights.'
   }
+  // ... Masukkan semua soal di sini seperti yang kamu punya
 ];
 
 
-// Endpoint untuk soal
+// Bersihkan soal dari duplikat
+const questions = removeDuplicateQuestions(rawQuestions);
+
+// Endpoint untuk mengambil soal
 app.get('/questions', (req, res) => {
   if (!Array.isArray(questions)) {
     return res.status(500).json({ error: 'Soal tidak tersedia' });
   }
 
-  // 1. Filter soal unik
-  const unique = getUniqueQuestions(questions);
-
-  // 2. Acak urutan soal dan pilihan jawaban
-  const shuffled = shuffleArray(unique).map(q => ({
+  const shuffled = shuffleArray(questions).map(q => ({
     ...q,
+    answer: Array.isArray(q.answer) ? q.answer : [q.answer],
     options: shuffleArray(q.options)
   }));
 
@@ -1328,5 +1332,5 @@ app.get('/questions', (req, res) => {
 
 // Jalankan server
 app.listen(port, () => {
-  console.log(`Server berjalan di http://localhost:${port}`);
+  console.log(`✅ Server berjalan di http://localhost:${port}`);
 });
