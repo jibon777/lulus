@@ -19,10 +19,10 @@ function App() {
 
   const handleAnswer = (answer) => {
     if (isAnswered || !questions[currentQuestion]) return;
-    
+
     let correctAnswers = questions[currentQuestion]?.answer || [];
     if (!Array.isArray(correctAnswers)) correctAnswers = [correctAnswers];
-    
+
     if (userAnswer.includes(answer)) {
       setUserAnswer(userAnswer.filter((ans) => ans !== answer));
       setError('');
@@ -44,21 +44,22 @@ function App() {
     if (!questions[currentQuestion]) return;
     let correctAnswers = questions[currentQuestion]?.answer || [];
     if (!Array.isArray(correctAnswers)) correctAnswers = [correctAnswers];
-    
+
     if (userAnswer.length !== correctAnswers.length) {
       setError(`Anda harus memilih ${correctAnswers.length} jawaban.`);
       return;
     }
-    
-    const isCorrect = userAnswer.every((ans) => correctAnswers.includes(ans)) &&
-                      correctAnswers.every((ans) => userAnswer.includes(ans));
-    
+
+    const isCorrect =
+      userAnswer.every((ans) => correctAnswers.includes(ans)) &&
+      correctAnswers.every((ans) => userAnswer.includes(ans));
+
     if (isCorrect) {
       setCorrectCount((prev) => prev + 1);
     } else {
       setWrongCount((prev) => prev + 1);
     }
-    
+
     setIsAnswered(true);
   };
 
@@ -74,6 +75,23 @@ function App() {
     }
   };
 
+  const renderFormattedText = (text) => {
+    if (!text) return null;
+
+    const parts = text.split(/(\*[^*]*)/g).filter(Boolean);
+
+    return parts.map((part, idx) => {
+      if (part.startsWith('*')) {
+        return (
+          <span key={idx} style={{ color: 'blue', fontWeight: 'bold' }}>
+            {part.replace(/^\*/, '').trim()}{' '}
+          </span>
+        );
+      }
+      return <span key={idx}>{part} </span>;
+    });
+  };
+
   return (
     <div className="App" style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Kuis Pilihan Ganda</h1>
@@ -83,8 +101,10 @@ function App() {
           <h3>Skor: {correctCount}/{questions.length}</h3>
           {questions.length > 0 && questions[currentQuestion] && (
             <div>
-              <h2>{questions[currentQuestion]?.question}</h2>
-              {questions[currentQuestion]?.instruction && <p>{questions[currentQuestion]?.instruction}</p>}
+              <h2>{renderFormattedText(questions[currentQuestion]?.question)}</h2>
+              {questions[currentQuestion]?.instruction && (
+                <p>{renderFormattedText(questions[currentQuestion]?.instruction)}</p>
+              )}
               <div>
                 {questions[currentQuestion]?.options?.map((option, index) => {
                   const optionLetter = String.fromCharCode(65 + index);
@@ -92,11 +112,11 @@ function App() {
                   if (!Array.isArray(correctAnswers)) correctAnswers = [correctAnswers];
                   const isCorrect = correctAnswers.includes(option);
                   const isSelected = userAnswer.includes(option);
-                  
+
                   let backgroundColor = '';
                   let textColor = 'black';
                   let fontWeight = 'normal';
-                  
+
                   if (isAnswered) {
                     if (isCorrect) {
                       backgroundColor = 'green';
@@ -137,12 +157,19 @@ function App() {
               </div>
               {error && <p style={{ color: 'red' }}>{error}</p>}
               {!isAnswered && (
-                <button onClick={checkAnswer} disabled={userAnswer.length === 0} style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>
+                <button
+                  onClick={checkAnswer}
+                  disabled={userAnswer.length === 0}
+                  style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}
+                >
                   Konfirmasi Jawaban
                 </button>
               )}
               {isAnswered && (
-                <button onClick={nextQuestion} style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>
+                <button
+                  onClick={nextQuestion}
+                  style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}
+                >
                   Pertanyaan Selanjutnya
                 </button>
               )}
@@ -155,7 +182,10 @@ function App() {
           <h3>Skor Akhir: {correctCount}/{questions.length}</h3>
           <h3>Persentase Benar: {((correctCount / questions.length) * 100).toFixed(2)}%</h3>
           <h3>Persentase Salah: {((wrongCount / questions.length) * 100).toFixed(2)}%</h3>
-          <button onClick={() => window.location.reload()} style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}>
+          <button
+            onClick={() => window.location.reload()}
+            style={{ marginTop: '20px', padding: '10px 20px', cursor: 'pointer' }}
+          >
             Mulai Lagi
           </button>
         </>
