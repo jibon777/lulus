@@ -301,7 +301,7 @@ systems. You receive an alert indicating that the service is failing to serve mo
 requests and all of its dependent systems with hundreds of thousands of users are\
 affected. As part of your Site Reliability Engineering (SRE) incident management\
 protocol, you declare yourself Incident Commander (IC) and pull in two experiencedpeople from your team as Operations Lead (OL) and\
-Communications Lead (CL). What should you do next?',
+Communications Lead (CL). What should you do next?*',
       options: [
         'Look for ways to mitigate user impact and deploy the mitigations to production.',
         'Contact the affected service owners and update them on the status of the incident.',
@@ -309,6 +309,158 @@ Communications Lead (CL). What should you do next?',
         'Start a postmortem, add incident information, circulate the draft internally, and ask internal stakeholders for input.',
       ],
       answer: 'Establish a communication channel where incident responders and leads can communicate with each other.'
+    }, 
+    {      
+      question: '*You are developing a strategy for monitoring your Google Cloud Platform (GCP)\
+projects in production using Stackdriver Workspaces. One of the requirements is to be\
+able to quickly identify and react to production environment issues without false alerts\
+from development and staging projects. You want to ensure that you adhere to the\
+principle of least privilege when providing relevant team members with access to\
+Stackdriver Workspaces. What should you do?*',
+      options: [
+        'Grant relevant team members read access to all GCP production projects.\
+Create Stackdriver workspaces inside each project.',
+        'Grant relevant team members the Project Viewer IAM role on all GCP\
+production projects. Create Stackdriver workspaces inside each project.',
+        'Choose an existing GCP production project to host the monitoring workspace.\
+Attach the production projects to this workspace. Grant relevant team members\
+read access to the Stackdriver Workspace.',
+        'Create a new GCP monitoring project and create a Stackdriver Workspace\
+inside it. Attach the production projects to this workspace. Grant relevant team\
+members read access to the Stackdriver Workspace.',
+      ],
+      answer: 'Create a new GCP monitoring project and create a Stackdriver Workspace\
+inside it. Attach the production projects to this workspace. Grant relevant team\
+members read access to the Stackdriver Workspace.'
+    }, 
+        {      
+      question: '*You currently store the virtual machine (VM) utilization logs in Stackdriver. You need to\
+provide an easy-to-share interactive VM utilization dashboard that is updated in real\
+time and contains information aggregated on a quarterly basis. You want to use Google\
+Cloud Platform solutions. What should you do?*',
+      options: [
+        '1. Export VM utilization logs from Stackdriver to BigQuery. 2. Create a\
+dashboard in Data Studio. 3. Share the dashboard with your stakeholders.',
+        '1. Export VM utilization logs from Stackdriver to Cloud Pub/Sub. 2. From\
+Cloud Pub/Sub, send the logs to a Security Information and Event Management\
+(SIEM) system. 3. Build the dashboards in the SIEM system and share with your\
+stakeholders.',
+        '1. Export VM utilization logs from Stackdriver to BigQuery. 2. From BigQuery,\
+export the logs to a CSV file. 3. Import the CSV file into Google Sheets. 4. Build a\
+dashboard in Google Sheets and share it with your stakeholders.',
+        '1. Export VM utilization logs from Stackdriver to a Cloud Storage bucket. 2.\
+Enable the Cloud Storage API to pull the logs programmatically. 3. Build a\
+custom data visualization application. 4. Display the pulled logs in a custom\
+dashboard.',
+      ],
+      answer: '1. Export VM utilization logs from Stackdriver to BigQuery. 2. Create a\
+dashboard in Data Studio. 3. Share the dashboard with your stakeholders.'
+    }, 
+ {      
+      question: '*You need to run a business-critical workload on a fixed set of Compute Engine\
+instances for several months. The workload is stable with the exact amount of\
+resources allocated to it. You want to lower the costs for this workload without any\
+performance implications. What should you do??*',
+      options: [
+        'Purchase Committed Use Discounts.',
+        'Migrate the instances to a Managed Instance Group.',
+        'Convert the instances to preemptible virtual machines.',
+        'Create an Unmanaged Instance Group for the instances used to run the workload.',
+      ],
+      answer: 'Purchase Committed Use Discounts.'
+    }, 
+ {      
+      question: '*You are part of an organization that follows SRE practices and principles. You are taking\
+over the management of a new service from the Development Team, and you conduct a\
+Production Readiness Review (PRR). After the PRR analysis phase, you determine that\
+the service cannot currently meet its Service Level\
+Objectives (SLOs). You want to ensure that the service can meet its SLOs in production.\
+What should you do next?*',
+      options: [
+        'Adjust the SLO targets to be achievable by the service so you can bring it into production.',
+        'Notify the development team that they will have to provide production support for the service.',
+        'Identify recommended reliability improvements to the service to be completed before handover.',
+        'Bring the service into production with no SLOs and build them when you have collected operational data.',
+      ],
+      answer: 'Identify recommended reliability improvements to the service to be completed before handover.'
+    }, 
+ {      
+      question: '*You are running an experiment to see whether your users like a new feature of a web\
+application. Shortly after deploying the feature as a canary release, you receive a spike\
+in the number of 500 errors sent to users, and your monitoring reports show increasedlatency. You want to quickly minimize the negative impact on users. What should you do\
+first?*',
+      options: [
+        'Roll back the experimental canary release.',
+        'Start monitoring latency, traffic, errors, and saturation.',
+        'Record data for the postmortem document of the incident.',
+        'Trace the origin of 500 errors and the root cause of increased latency.',
+      ],
+      answer: 'Roll back the experimental canary release.'
+    }, 
+ {      
+      question: '*You are responsible for creating and modifying the Terraform templates that define your\
+Infrastructure. Because two new engineers will also be working on the same code, you\
+need to define a process and adopt a tool that will prevent you from overwriting each\
+other\'s code. You also want to ensure that you capture all updates in the latest version.\
+What should you do?*',
+      options: [
+        'Store your code in a Git-based version control system. Establish a\
+process that allows developers to merge their own changes at the end of each\
+day. Package and upload code to a versioned Cloud Storage basket as the\
+latest master version.',
+        'Store your code in a Git-based version control system. Establish a\
+process that includes code reviews by peers and unit testing to ensure integrity\
+and functionality before integration of code. Establish a process where the\
+fully integrated code in the repository becomes the latest master version.',
+        'Store your code as text files in Google Drive in a defined folder structure\
+that organizes the files. At the end of each day, confirm that all changes have\
+been captured in the files within the folder structure. name the folder\
+structure with a predefined naming convention that increments the version.',
+        'Store your code as text files in Google Drive in a defined folder structure\
+that organizes the files. At the end of each day, confirm that all changes have\
+been captured in the files within the folder structure and create a new .zip archivewith a predefined naming convention. Upload the .zip archive to a versioned\
+Cloud Storage bucket and accept it as the latest version.',
+      ],
+      answer: 'Store your code in a Git-based version control system. Establish a\
+process that includes code reviews by peers and unit testing to ensure integrity\
+and functionality before integration of code. Establish a process where the\
+fully integrated code in the repository becomes the latest master version.'
+    }, 
+ {      
+      question: '*You support a high-traffic web application with a microservice architecture. The home\
+page of the application displays multiple widgets containing content such as the current\
+weather, stock prices, and news headlines. The main serving thread makes a call to a\
+dedicated microservice for each widget and then lays out the homepage for the user.\
+The microservices occasionally fail; when that happens, the serving thread serves the\
+homepage with some missing content. Users of the application are unhappy if this\
+degraded mode occurs too frequently, but they would rather have some content served\
+instead of no content at all. You want to set a Service Level Objective (SLO) to ensure\
+that the user experience does not degrade too much. What Service Level Indicator (SLI)\
+should you use to measure this?*',
+      options: [
+        'A quality SLI: the ratio of non-degraded responses to total responses.',
+        'An availability SLI: the ratio of healthy microservices to the total number of microservices.',
+        'A freshness SLI: the proportion of widgets that have been updated within the last 10 minutes.',
+        'A latency SLI: the ratio of microservice calls that complete in under 100 ms to the total number of microservice calls.',
+      ],
+      answer: 'A quality SLI: the ratio of non-degraded responses to total responses.'
+    }, 
+ {      
+      question: '*You support a multi-region web service running on Google Kubernetes Engine (GKE)\
+behind a Global HTTP/S Cloud Load Balancer (CLB). For legacy reasons, user\
+requests first go through a third-party Content Delivery Network (CDN), which then\
+routes traffic to the CLB. You have already implemented an availabilityService Level Indicator (SLI) at the CLB level. However, you want to increase coverage\
+in case of a potential load balancer misconfiguration, CDN failure, or other global\
+networking catastrophe. Where should you measure this new SLI? (Choose two.)*',
+      options: [
+        'Your application servers\' logs.',
+        'Instrumentation coded directly in the client.',
+        'Metrics exported from the application servers.',
+        'GKE health checks for your application servers.',
+        'A synthetic client that periodically sends simulated user requests.',
+      ],
+      answer: ['Instrumentation coded directly in the client.','A synthetic client that periodically sends simulated user requests.']
+
     }, 
 ];
 
