@@ -1086,6 +1086,602 @@ access to the KeyRing.',
 include them in your Cloud Build deployment configuration. Grant Cloud Build\
 access to the KeyRing.'
     },
+    {      
+      question: '*You support a popular mobile game application deployed on Google Kubernetes Engine\
+(GKE) across several Google Cloud regions. Each region has multiple\
+Kubernetes clusters. You receive a report that none of the users in a specific region can\
+connect to the application. You want to resolve the incident while following Site\
+Reliability Engineering practices. What should you do first?*' ,
+      options: [
+        'Reroute the user traffic from the affected region to other regions that don\'t report issues.',
+        'Use Stackdriver Monitoring to check for a spike in CPU or memory usage for the affected region.',
+        'Add an extra node pool that consists of high memory and high CPU machine type instances to the cluster.',
+        'Use Stackdriver Logging to filter on the clusters in the affected region, and inspect error messages in the logs.',
+      ],
+      answer: 'Reroute the user traffic from the affected region to other regions that don\'t report issues.'
+    },
+    {      
+      question: '*You are writing a postmortem for an incident that severely affected users. You want to\
+prevent similar incidents in the future. Which two of the following sections should you\
+include in the postmortem? (Choose two.)*' ,
+      options: [
+        'A. An explanation of the root cause of the incident.',
+        'A list of employees responsible for causing the incident',
+        'A list of action items to prevent a recurrence of the incident',
+        'Your opinion of the incident\'s severity compared to past incidents',
+        'Your opinion of the incident\'s severity compared to past incidents',
+      ],
+      answer:  ['An explanation of the root cause of the incident.',
+      'A list of action items to prevent a recurrence of the incident',
+    ],
+    },
+    {      
+      question: '*You are ready to deploy a new feature of a web-based application to production. You\
+want to use Google Kubernetes Engine (GKE) to perform a phased rollout to half of the\
+web server pods.\
+What should you do?*' ,
+      options: [
+        'Use a partitioned rolling update.',
+        'Use Node taints with NoExecute.',
+        'Use a replica set in the deployment specification.',
+        'Use a stateful set with parallel pod management policy.',
+      ],
+      answer: 'Use a partitioned rolling update.'
+    },
+    {      
+      question: '*You are responsible for the reliability of a high-volume enterprise application. A large\
+number of users report that an important subset of the application\'s functionality `" a\
+data intensive reporting feature `" is consistently failing with an HTTP 500 error. When\
+you investigate your application\'s dashboards, you notice a strong correlation between\
+the failures and a metric that represents the size of an internal queue used for\
+generating reports. You trace the failures to a reporting backend that is experiencing\
+high I/O wait times. You quickly fix the issue by resizing the backend\'s persistent disk\
+(PD). How you need to create an availability\
+Service Level Indicator (SLI) for the report generation feature. How would you define it?*' ,
+      options: [
+        'As the I/O wait times aggregated across all report generation backends',
+        'As the proportion of report generation requests that result in a successful response',
+        'Use a replica set in the deployment specification.',
+        'Use a stateful set with parallel pod management policy.',
+      ],
+      answer: 'As the proportion of report generation requests that result in a successful response'
+    },
+    {      
+      question: '*You have an application running in Google Kubernetes Engine. The application invokes\
+multiple services per request but responds too slowly. You need to identify which\
+downstream service or services are causing the delay. What should you do?*' ,
+      options: [
+        'Analyze VPC flow logs along the path of the request.',
+        'Investigate the Liveness and Readiness probes for each service.',
+        'Create a Dataflow pipeline to analyze service metrics in real time.',
+        'Use a distributed tracing framework such as OpenTelemetry or Stackdriver Trace.',
+      ],
+      answer: 'Use a distributed tracing framework such as OpenTelemetry or Stackdriver Trace.'
+    },
+    {      
+      question: '*You are creating and assigning action items in a postmodern for an outage. The outage\
+is over, but you need to address the root causes. You want to ensure that your team\
+handles the action items quickly and efficiently. How should you assign owners and\
+collaborators to action items?*' ,
+      options: [
+        'Assign one owner for each action item and any necessary collaborators.',
+        'Assign multiple owners for each item to guarantee that the team addresses items quickly.',
+        'Assign collaborators but no individual owners to the items to keep the postmortem blameless.',
+        'Assign the team lead as the owner for all action items because they are in charge of the SRE team.',
+      ],
+      answer: 'Assign one owner for each action item and any necessary collaborators.'
+    },
+    {      
+      question: '*Your development team has created a new version of their service\'s API. You need to\
+deploy the new versions of the API with the least disruption to third-party developers\
+and end users of third-party installed applications. What should you do?*' ,
+      options: [
+        'Introduce the new version of the API. Announce deprecation of the old version\
+of the API. Deprecate the old version of the API. Contact remaining users of the\
+old API. Provide best effort support to users of the old API. Turn down the old\
+version of the API.',
+        'Announce deprecation of the old version of the API. Introduce the new version\
+of the API. Contact remaining users on the old API. Deprecate the old version of\
+the API. Turn down the old version of the API. Provide best effort support to\
+users of the old API.',
+        'Announce deprecation of the old version of the API. Contact remaining users\
+on the old API. Introduce the new version of the API. Deprecate the old version\
+of the API. Provide best effort support to users of the old API. Turn down the old\
+version of the API.',
+        'Introduce the new version of the API. Contact remaining users of the old API.\
+Announce deprecation of the old version of the API. Deprecate the old version of\
+the API. Turn down the old version of the API. Provide best effort support to\
+users of the old API.',
+      ],
+      answer: 'Introduce the new version of the API. Announce deprecation of the old version\
+of the API. Deprecate the old version of the API. Contact remaining users of the\
+old API. Provide best effort support to users of the old API. Turn down the old\
+version of the API.'
+    },
+    {      
+      question: '*You are running an application on Compute Engine and collecting logs through\
+Stackdriver. You discover that some personally identifiable information (PII) is leaking\
+into certain log entry fields. You want to prevent these fields from being written in new\
+log entries as quickly as possible. What should you do?*' ,
+      options: [
+        'Use the filter-record-transformer Fluentd filter plugin to remove the fields from the log entries in flight.',
+        'Use the fluent-plugin-record-reformer Fluentd output plugin to remove the fields from the log entries in flight.',
+        'Wait for the application developers to patch the application, and then verify that the log entries are no longer exposing PII.',
+        'Stage log entries to Cloud Storage, and then trigger a Cloud Function to remove the fields and write the entries to Stackdriver via the Stackdriver Logging API.',
+      ],
+      answer: 'Use the filter-record-transformer Fluentd filter plugin to remove the fields from the log entries in flight.'
+    },
+    {      
+      question: '*You support a service that recently had an outage. The outage was caused by a new\
+release that exhausted the service memory resources. You rolled back the release\
+successfully to mitigate the impact on users. You are now in charge of the post-mortem\
+for the outage. You want to follow Site Reliability Engineering practices when developing\
+the post-mortem. What should you do?*' ,
+      options: [
+        'Focus on developing new features rather than avoiding the outages from recurring.',
+        'Focus on identifying the contributing causes of the incident rather than the individual responsible for the cause.',
+        'Plan individual meetings with all the engineers involved. Determine who approved and pushed the new release to production.',
+        'Use the Git history to find the related code commit. Prevent the engineer who made that commit from working on production services.',
+      ],
+      answer: 'Focus on identifying the contributing causes of the incident rather than the individual responsible for the cause.'
+    },
+    {
+      question: 'You support a user-facing web application. When analyzing the application\'s error\
+budget over the previous six months, you notice that the application has never\
+consumed more than 5% of its error budget in any given time window. You hold a\
+Service Level Objective (SLO) review with business stakeholders and confirm that theSLO is set appropriately. You want your application\'s SLO to more closely reflect its\
+observed reliability. What steps can you take to further that goal while balancing\
+velocity, reliability, and business needs? (Choose two.)' ,
+      options: [
+        'Add more serving capacity to all of your application\'s zones.',
+        'Have more frequent or potentially risky application releases.',
+        'Tighten the SLO match the application\'s observed reliability.',
+        'Implement and measure additional Service Level Indicators (SLIs) fro the\
+application.',
+        'Announce planned downtime to consume more error budget, and ensure that\
+users are not depending on a tighter SLO.',
+      ],
+      answer: ['Implement and measure additional Service Level Indicators (SLIs) fro the\
+application.', 
+'Announce planned downtime to consume more error budget, and ensure that\
+users are not depending on a tighter SLO.',
+      ]
+    },
+    {      
+      question: '*Your company follows Site Reliability Engineering principles. You are writing a\
+postmortem for an incident, triggered by a software change that severely affected users.\
+You want to prevent severe incident from happening in the future. What should you do?*' ,
+      options: [
+        'Identify engineers responsible for the incident and escalate to the senior management.',
+        'Ensure that test cases that catch errors of this type are run successfully before new software releases.',
+        'Follow up with the employees who reviewed the changes and prescribe practices they should follow in the future.',
+        'Design a policy that will require on-call teams to immediately call engineers and management to discuss a plan of action if an incident occurs.',
+      ],
+      answer: 'Ensure that test cases that catch errors of this type are run successfully before new software releases.'
+    },
+    {
+      question: '*Your organization uses a change advisory board (CAB) to approve all changes to an\
+existing service. You want to revise this process to eliminate any negative impact on the\
+software delivery performance. What should you do? (Choose two.)*' ,
+      options: [
+        'Replace the CAB with a senior manager to ensure continuous oversight from\
+development to deployment.',
+        'Let developers merge their own changes, but ensure that the team\'s\
+deployment platform can roll back changes if any issues are discovered.',
+        'Move to a peer-review based process for individual changes that is enforced\
+at code check-in time and supported by automated tests.',
+        'Batch changes into larger but less frequent software releases.',
+        'Ensure that the team\'s development platform enables developers to get fast\
+feedback on the impact of their changes.',
+      ],
+      answer: ['Move to a peer-review based process for individual changes that is enforced\
+at code check-in time and supported by automated tests.', 
+'Ensure that the team\'s development platform enables developers to get fast\
+feedback on the impact of their changes.',
+      ]
+    },
+    {
+      question: '*Your organization has a containerized web application that runs on-premises. As part of\
+the migration plan to Google Cloud, you need to select a deployment strategy and\
+platform that meets the following acceptance criteria:\
+1. The platform must be able to direct traffic from Android devices to an Android-specific\
+microservice.\
+2. The platform must allow for arbitrary percentage-based traffic splitting\
+3. The deployment strategy must allow for continuous testing of multiple versions of any\
+microservice.\
+What should you do?*' ,
+      options: [
+        'Deploy the canary release of the application to Cloud Run. Use traffic splitting to direct 10% of user traffic to the canary release based on the revision tag.',
+        'Deploy the canary release of the application to App Engine. Use traffic splitting to direct a subset of user traffic to the new version based on the IP address.',
+        'Deploy the canary release of the application to Compute Engine. Use Anthos Service Mesh with Compute Engine to direct 10% of user traffic to the canary release by configuring the virtual service.',
+        'Deploy the canary release to Google Kubernetes Engine with Anthos Service Mesh. Use traffic splitting to direct 10% of user traffic to the new version based on the user-agent header configured in the virtual service.',
+      ],
+      answer: 'Deploy the canary release to Google Kubernetes Engine with Anthos Service Mesh. Use traffic splitting to direct 10% of user traffic to the new version based on the user-agent header configured in the virtual service.'
+    },
+    {
+      question: '*Your team is running microservices in Google Kubernetes Engine (GKE). You want to\
+detect consumption of an error budget to protect customers and define release policies.\
+What should you do?*' ,
+      options: [
+        'Create SLIs from metrics. Enable Alert Policies if the services do not pass.',
+        'Use the metrics from Anthos Service Mesh to measure the health of the microservices.',
+        'Create a SLO. Create an Alert Policy on select_slo_burn_rate.',
+        'Create a SLO and configure uptime checks for your services. Enable Alert Policies if the services do not pass.',
+      ],
+      answer: 'Create a SLO. Create an Alert Policy on select_slo_burn_rate..'
+    },
+    {
+      question: '*Your organization wants to collect system logs that will be used to generate dashboards\
+in Cloud Operations for their Google Cloud project. You need to configure all current\
+and future Compute Engine instances to collect the system logs, and you must ensure\
+that the Ops Agent remains up to date. What should you do?*' ,
+      options: [
+        'Use the gcloud CLI to install the Ops Agent on each VM listed in the Cloud Asset Inventory.',
+        'Select all VMs with an Agent status of Not detected on the Cloud Operations VMs dashboard. Then select Install agents.',
+        'Use the gcloud CLI to create an Agent Policy.',
+        'Install the Ops Agent on the Compute Engine image by using a startup script.',
+      ],
+      answer: 'Use the gcloud CLI to create an Agent Policy.'
+    },
+    {
+      question: '*Your company has a Google Cloud resource hierarchy with folders for production, test,\
+and development. Your cyber security team needs to review your company\'\s Google\
+Cloud security posture to accelerate security issue identification and resolution. You\
+need to centralize the logs generated by Google Cloud services from all projects onlyinside your production folder to allow for alerting and near-real time analysis. What\
+should you do?*' ,
+      options: [
+        'Enable the Workflows API and route all the logs to Cloud Logging.',
+        'Create a central Cloud Monitoring workspace and attach all related projects.',
+        'Create an aggregated log sink associated with the production folder that uses a Pub/Sub topic as the destination.',
+        'Create an aggregated log sink associated with the production folder that uses a Cloud Logging bucket as the destination.',
+      ],
+      answer: 'Create an aggregated log sink associated with the production folder that uses a Pub/Sub topic as the destination.'
+    },
+    {
+      question: '*You are configuring the frontend tier of an application deployed in Google Cloud. The\
+frontend tier is hosted in nginx and deployed using a managed instance group with an\
+Envoy-based external HTTP(S) load balancer in front. The application is deployed\
+entirely within the europe-west2 region, and only serves users based in the United\
+Kingdom. You need to choose the most cost-effective network tier and load balancing\
+configuration. What should you use?*' ,
+      options: [
+        'Premium Tier with a global load balancer.',
+        'Premium Tier with a regional load balancer.',
+        'Standard Tier with a global load balancer.',
+        'Standard Tier with a regional load balancer.',
+      ],
+      answer: 'Standard Tier with a regional load balancer.'
+    },
+    {
+      question: '*You recently deployed your application in Google Kubernetes Engine (GKE) and now\
+need to release a new version of the application. You need the ability to instantly roll\
+back to the previous version of the application in case there are issues with the new\
+version. Which deployment model should you use?*' ,
+      options: [
+        'Perform a rolling deployment, and test your new application after the deployment is complete.',
+        'Perform A/B testing, and test your application periodically after the deployment is complete.',
+        'Perform a canary deployment, and test your new application periodically after the new version is deployed.',
+        'Perform a blue/green deployment, and test your new application after the deployment is complete.',
+      ],
+      answer: 'Perform a blue/green deployment, and test your new application after the deployment is complete.'
+    },
+    {
+      question: '*You are building and deploying a microservice on Cloud Run for your organization. Your\
+service is used by many applications internally. You are deploying a new release, and\
+you need to test the new version extensively in the staging and production\
+environments. You must minimize user and developer impact. What should you do?*' ,
+      options: [
+        'Deploy the new version of the service to the staging environment. Split the\
+traffic, and allow 1% of traffic through to the latest version. Test the latest version.\
+If the test passes, gradually roll out the latest version to the staging and\
+production environments.',
+        'Deploy the new version of the service to the staging environment. Split the\
+traffic, and allow 50% of traffic through to the latest version. Test the latest\
+version. If the test passes, send all traffic to the latest version. Repeat for the\
+production environment.',
+        'Deploy the new version of the service to the staging environment with a\
+new-release tag without serving traffic. Test the new-release version. If the testpasses, gradually roll out this tagged version. Repeat for the production\
+environment.',
+        'Deploy a new environment with the green tag to use as the staging\
+environment. Deploy the new version of the service to the green environment\
+and test the new version. If the tests pass, send all traffic to the green\
+environment and delete the existing staging environment. Repeat for the\
+production environment.',
+      ],
+      answer: 'Deploy the new version of the service to the staging environment with a\
+new-release tag without serving traffic. Test the new-release version. If the testpasses, gradually roll out this tagged version. Repeat for the production\
+environment.'
+    },
+    {
+      question: '*You work for a global organization and run a service with an availability target of 99%\
+with limited engineering resources.\
+For the current calendar month, you noticed that the service has 99.5% availability. You\
+must ensure that your service meets the defined availability goals and can react to\
+business changes, including the upcoming launch of new features.\
+You also need to reduce technical debt while minimizing operational costs. You want to\
+follow Google-recommended practices. What should you do?*' ,
+      options: [
+        'Add N+1 redundancy to your service by adding additional compute resources to the service.',
+        'Identify, measure, and eliminate toil by automating repetitive tasks.',
+        'Define an error budget for your service level availability and minimize the remaining error budget.',
+        'Allocate available engineers to the feature backlog while you ensure that the service remains within the availability target.',
+      ],
+      answer: 'Identify, measure, and eliminate toil by automating repetitive tasks.'
+    },
+    {
+      question: '*You are developing the deployment and testing strategies for your CI/CD pipeline in\
+Google Cloud. You must be able to:\
+• Reduce the complexity of release deployments and minimize the duration of\
+deployment rollbacks.\
+• Test real production traffic with a gradual increase in the number of affected users.\
+You want to select a deployment and testing strategy that meets your requirements.\
+What should you do?*' ,
+      options: [
+        'Recreate deployment and canary testing',
+        'Blue/green deployment and canary testing',
+        'Rolling update deployment and A/B testing',
+        'Rolling update deployment and shadow testing',
+      ],
+      answer: 'Blue/green deployment and canary testing'
+    },
+    {
+      question: '*You are creating a CI/CD pipeline to perform Terraform deployments of Google Cloud\
+resources. Your CI/CD tooling is running in Google Kubernetes Engine (GKE) and uses\
+an ephemeral Pod for each pipeline run. You must ensure that the pipelines that run in\
+the Pods have the appropriate Identity and Access Management (IAM) permissions to\
+perform the Terraform deployments. You want to follow Google-recommended practices\
+for identity management. What should you do? (Choose two.)*' ,
+      options: [
+        'Create a new Kubernetes service account, and assign the service account to\
+the Pods. Use Workload Identity to authenticate as the Google service account.',
+        'Create a new JSON service account key for the Google service account, store\
+the key as a Kubernetes secret, inject the key into the Pods, and set the\
+GOOGLE_APPLICATION_CREDENTIALS environment variable.',
+        'Create a new Google service account, and assign the appropriate IAM\
+permissions.',
+        'Create a new JSON service account key for the Google service account, store\
+the key in the secret management store for the CI/CD tool, and configure\
+Terraform to use this key for authentication.',
+        'Assign the appropriate IAM permissions to the Google service account\
+associated with the Compute Engine VM instances that run the Pods.',
+      ],
+      answer: ['Create a new Kubernetes service account, and assign the service account to\
+the Pods. Use Workload Identity to authenticate as the Google service account.', 
+'Create a new Google service account, and assign the appropriate IAM\
+permissions.',
+      ]
+    },
+  {
+      question: '*You are the on-call Site Reliability Engineer for a microservice that is deployed to a\
+Google Kubernetes Engine (GKE) Autopilot cluster. Your company runs an online store\
+that publishes order messages to Pub/Sub, and a microservice receives these\
+messages and updates stock information in the warehousing system. A sales event\
+caused an increase in orders, and the stock information is not being updated quickly\
+enough. This is causing a large number of orders to be accepted for products that are\
+out of stock. You check the metrics for the microservice and compare them to typical\
+levels:\
+You need to ensure that the warehouse system accurately reflects product inventory at\
+the time orders are placed and minimize the impact on customers. What should you do?*' ,
+      options: [
+        'Decrease the acknowledgment deadline on the subscription.',
+        'Add a virtual queue to the online store that allows typical traffic levels.',
+        'Increase the number of Pod replicas.',
+        'Increase the Pod CPU and memory limits.',
+      ],
+      answer: 'Increase the number of Pod replicas.'
+    },
+  {
+      question: '*Your team deploys applications to three Google Kubernetes Engine (GKE)\
+environments: development, staging, and production. You use GitHub repositories as\
+your source of truth. You need to ensure that the three environments are consistent.\
+You want to follow Google-recommended practices to enforce and install network\
+policies and a logging DaemonSet on all the GKE clusters in those environments. What\
+should you do?*' ,
+      options: [
+        'Use Google Cloud Deploy to deploy the network policies and the DaemonSet.\
+Use Cloud Monitoring to trigger an alert if the network policies and DaemonSet\
+drift from your source in the repository.',
+        'Use Google Cloud Deploy to deploy the DaemonSet and use Policy Controller\
+to configure the network policies. Use Cloud Monitoring to detect drifts from the\
+source in the repository and Cloud Functions to correct the drifts.',
+        'Use Cloud Build to render and deploy the network policies and the\
+DaemonSet. Set up Config Sync to sync the configurations for the three\
+environments.',
+        'Use Cloud Build to render and deploy the network policies and the\
+DaemonSet. Set up a Policy Controller to enforce the configurations for the three\
+environments.',
+      ],
+      answer: 'Use Cloud Build to render and deploy the network policies and the\
+DaemonSet. Set up a Policy Controller to enforce the configurations for the three\
+environments.'
+    },
+  {
+      question: '*You are using Terraform to manage infrastructure as code within a CI/CD pipeline. You\
+notice that multiple copies of the entire infrastructure stack exist in your Google Cloud\
+project, and a new copy is created each time a change to the existing infrastructure is\
+made. You need to optimize your cloud spend by ensuring that only a single instance of\
+your infrastructure stack exists at a time. You want to follow Google-recommended\
+practices. What should you do?*' ,
+      options: [
+        'Create a new pipeline to delete old infrastructure stacks when they are no\
+longer needed.',
+        'Confirm that the pipeline is storing and retrieving the terraform.tfstate file from\
+Cloud Storage with the Terraform gcs backend.',
+        'Verify that the pipeline is storing and retrieving the terraform.tfstate file from a\
+source control.',
+        'Update the pipeline to remove any existing infrastructure before you apply the\
+latest configuration.',
+      ],
+      answer: 'Confirm that the pipeline is storing and retrieving the terraform.tfstate file from\
+Cloud Storage with the Terraform gcs backend.'
+    },
+  {
+      question: '*You are creating Cloud Logging sinks to export log entries from Cloud Logging to\
+BigQuery for future analysis. Your organization has a Google Cloud folder named Dev\
+that contains development projects and a folder named Prod that contains production\
+projects. Log entries for development projects must be exported to dev_dataset, and log\
+entries for production projects must be exported to prod_dataset. You need to minimize\
+the number of log sinks created, and you want to ensure that the log sinks apply to\
+future projects. What should you do?*' ,
+      options: [
+        'Create a single aggregated log sink at the organization level.',
+        'Create a log sink in each project.',
+        'Create two aggregated log sinks at the organization level, and filter by project ID.',
+        'Create an aggregated log sink in the Dev and Prod folders.',
+      ],
+      answer: 'Create an aggregated log sink in the Dev and Prod folders.'
+    },
+ {
+      question: 'Your company runs services by using multiple globally distributed Google Kubernetes\
+Engine (GKE) clusters. Your operations team has set up workload monitoring that uses\
+Prometheus-based tooling for metrics, alerts, and generating dashboards. This setup\
+does not provide a method to view metrics globally across all clusters. You need to\
+implement a scalable solution to support global Prometheus querying and minimize\
+management overhead. What should you do?' ,
+      options: [
+        'Configure Prometheus cross-service federation for centralized data access.',
+        'Configure workload metrics within Cloud Operations for GKE.',
+        'Configure Prometheus hierarchical federation for centralized data access.',
+        'Configure Google Cloud Managed Service for Prometheus.',
+      ],
+      answer: 'Configure Google Cloud Managed Service for Prometheus.'
+    },
+  {
+      question: '*You need to build a CI/CD pipeline for a containerized application in Google Cloud. Your\
+development team uses a central Git repository for trunk-based development. You want\
+to run all your tests in the pipeline for any new versions of the application to improve the\
+quality. What should you do?*' ,
+      options: [
+        'A. 1. Install a Git hook to require developers to run unit tests before pushing the\
+code to a central repository.\
+2. Trigger Cloud Build to build the application container. Deploy the application\
+container to a testing environment, and run integration tests.\
+3. If the integration tests are successful, deploy the application container to your\
+production environment, and run acceptance tests.',
+        '1. Install a Git hook to require developers to run unit tests before pushing the\
+code to a central repository. If all tests are successful, build a container.\
+2. Trigger Cloud Build to deploy the application container to a testing\
+environment, and run integration tests and acceptance tests.\
+3. If all tests are successful, tag the code as production ready. Trigger Cloud\
+Build to build and deploy the application container to the production environment.',
+        '1. Trigger Cloud Build to build the application container, and run unit tests with\
+2. If unit tests are successful, deploy the application container to a testing\
+environment, and run integration tests.\
+3. If the integration tests are successful, the pipeline deploys the application\
+container to the production environment. After that, run acceptance tests.',
+        '1. Trigger Cloud Build to run unit tests when the code is pushed. If all unit\
+tests are successful, build and push the application container to a central registry.\
+2. Trigger Cloud Build to deploy the container to a testing environment, and run\
+integration tests and acceptance tests.\
+3. If all tests are successful, the pipeline deploys the application to the production\
+environment and runs smoke tests.',
+      ],
+      answer: '1. Trigger Cloud Build to run unit tests when the code is pushed. If all unit\
+tests are successful, build and push the application container to a central registry.\
+2. Trigger Cloud Build to deploy the container to a testing environment, and run\
+integration tests and acceptance tests.\
+3. If all tests are successful, the pipeline deploys the application to the production\
+environment and runs smoke tests.'
+    },
+  {
+      question: '*The new version of your containerized application has been tested and is ready to be\
+deployed to production on Google Kubernetes Engine (GKE). You could not fully\
+load-test the new version in your pre-production environment, and you need to ensure\
+that the application does not have performance problems after deployment. Your\
+deployment must be automated. What should you do?*' ,
+      options: [
+        'Deploy the application through a continuous delivery pipeline by using canary\
+deployments. Use Cloud Monitoring to look for performance issues, and ramp up\
+traffic as supported by the metrics.',
+        'Deploy the application through a continuous delivery pipeline by using\
+blue/green deployments. Migrate traffic to the new version of the application and\
+use Cloud Monitoring to look for performance issues.',
+        'Deploy the application by using kubectl and use Config Connector to slowly\
+ramp up traffic between versions. Use Cloud Monitoring to look for performance\
+issues.',
+        '1. Trigger Cloud Build to run unit tests when the code is pushed. If all unit\
+tests are successful, build and push the application container to a central registry.\
+2. Trigger Cloud Build to deploy the container to a testing environment, and run\
+integration tests and acceptance tests.\
+3. If all tests are successful, the pipeline deploys the application to the production\
+environment and runs smoke tests.',
+      ],
+      answer: 'Deploy the application through a continuous delivery pipeline by using canary\
+deployments. Use Cloud Monitoring to look for performance issues, and ramp up\
+traffic as supported by the metrics.'
+    },
+  {
+      question: '*You are managing an application that runs in Compute Engine. The application uses a\
+custom HTTP server to expose an API that is accessed by other applications through\
+an internal TCP/UDP load balancer. A firewall rule allows access to the API port from\
+0.0.0.0/0. You need to configure Cloud Logging to log each IP address that accesses\
+the API by using the fewest number of steps. What should you do first?*' ,
+      options: [
+        'Enable Packet Mirroring on the VPC.',
+        'Install the Ops Agent on the Compute Engine instances.',
+        'Enable logging on the firewall rule.',
+        'Enable VPC Flow Logs on the subnet.',
+      ],
+      answer: 'Enable logging on the firewall rule.'
+    },
+    {
+      question: '*Your company runs an ecommerce website built with JVM-based applications and\
+microservice architecture in Google Kubernetes Engine (GKE). The application load\
+increases during the day and decreases during the night. Your operations team has\
+configured the application to run enough Pods to handle the evening peak load. You\
+want to automate scaling by only running enough Pods and nodes for the load. What\
+should you do?*' ,
+      options: [
+        'Configure the Vertical Pod Autoscaler, but keep the node pool size static.',
+        'Configure the Vertical Pod Autoscaler, and enable the cluster autoscaler.',
+        'Configure the Horizontal Pod Autoscaler, but keep the node pool size static.',
+        'Configure the Horizontal Pod Autoscaler, and enable the cluster autoscaler.',
+      ],
+      answer: 'Configure the Horizontal Pod Autoscaler, and enable the cluster autoscaler.'
+    },
+    {
+      question: '*Your organization wants to increase the availability target of an application from 99.9%\
+to 99.99% for an investment of $2,000. The application\'s current revenue is $1,000,000.\
+You need to determine whether the increase in availability is worth the investment for a\
+single year of usage. What should you do?*',
+      options: [
+        'Calculate the value of improved availability to be $900, and determine that the increase in availability is not worth the investment.',
+        'Calculate the value of improved availability to be $1,000, and determine that the increase in availability is not worth the investment.',
+        'Calculate the value of improved availability to be $1,000, and determine that the increase in availability is worth the investment.',
+        'Calculate the value of improved availability to be $9,000, and determine that the increase in availability is worth the investment.',
+      ],
+      answer: 'Calculate the value of improved availability to be $900, and determine that the increase in availability is not worth the investment.'
+    },
+    {
+      question: '*A third-party application needs to have a service account key to work properly. When\
+you try to export the key from your cloud project, you receive an error: “The organization\
+policy constraint iam.disableServiceAccounKeyCreation is enforced.” You need to make\
+the third-party application work while following Google-recommended security practices.\
+What should you do?*',
+      options: [
+        'Enable the default service account key, and download the key.',
+        'Remove the iam.disableServiceAccountKeyCreation policy at the organization level, and create a key.',
+        'Disable the service account key creation policy at the project\'s folder, and\
+download the default key.',
+        'Add a rule to set the iam.disableServiceAccountKeyCreation policy to off in your project, and create a key.',
+      ],
+      answer: 'Add a rule to set the iam.disableServiceAccountKeyCreation policy to off in your project, and create a key.'
+    },
+        {
+      question: '*Your team is writing a postmortem after an incident on your external facing application.\
+Your team wants to improve the postmortem policy to include triggers that indicate\
+whether an incident requires a postmortem. Based on Site Reliability Engineering (SRE)\
+practices, what triggers should be defined in the postmortem policy? (Choose two.)*',
+      options: [
+        'An external stakeholder asks for a postmortem.',
+        'Data is lost due to an incident.',
+        'An internal stakeholder requests a postmortem.',
+        'The monitoring system detects that one of the instances for your application has failed.',
+        'The CD pipeline detects an issue and rolls back a problematic release.',
+      ],
+      answer: ['Data is lost due to an incident','The CD pipeline detects an issue and rolls back a problematic release.','The CD pipeline detects an issue and rolls back a problematic release.',]
+    },
+    
 ];
 
 // Fungsi untuk mengacak array
