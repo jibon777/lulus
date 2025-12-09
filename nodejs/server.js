@@ -651,7 +651,7 @@ cluster while minimizing development time. What should you do?',
         'Add logic to the deployment pipeline to check that all manifests contain only images from gcr.io/altostrat-images.',
         'Add a tag to each image in gcr.io/altostrat-images and check that this tag is present when the image is deployed.',
       ],
-      answer: 'Use a Binary Authorization policy that includes the whitelist name pattern   gcr.io/altostrat-images/.'
+      answer: 'Use a Binary Authorization policy that includes the whitelist name pattern gcr.io/altostrat-images/.'
     },
   {      
       question: 'Your team has recently deployed an NGINX-based application into Google Kubernetes\
