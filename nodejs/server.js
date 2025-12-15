@@ -571,7 +571,7 @@ need to plan for capacity. What should you do?*',
         'Validate that the resource requirements are within the available quota limits of each region.',
         'Deploy the service in one region and use a global load balancer to route traffic to this region.',
       ],
-      answer: 'Create a logs-based metric in Stackdriver Logging and a dashboard for that metric in Stackdriver Monitoring.'
+      answer: 'Validate that the resource requirements are within the available quota limits of each region.'
     },
 {      
       question: '*You are running an application on Compute Engine and collecting logs through\
@@ -599,7 +599,7 @@ Reliability Engineering practices. What should you do?*',
         'Upload the configuration YAML file to Cloud Storage and use Error Reporting to identify and fix the issue.',
         'Run a Git compare between the previous and current Cloud Build Configuration files to find and fix the bug.',
       ],
-      answer: 'Use a Fluentd filter plugin with the Stackdriver Agent to remove log entries containing userinfo, and then copy the entries to a Cloud Storage bucket.'
+      answer: 'Run a Git compare between the previous and current Cloud Build Configuration files to find and fix the bug.'
     },
 {      
       question: '*Your company follows Site Reliability Engineering principles. You are writing a\
@@ -1308,7 +1308,7 @@ What should you do?*' ,
         'Create a SLO. Create an Alert Policy on select_slo_burn_rate.',
         'Create a SLO and configure uptime checks for your services. Enable Alert Policies if the services do not pass.',
       ],
-      answer: 'Create a SLO. Create an Alert Policy on select_slo_burn_rate..'
+      answer: 'Create a SLO. Create an Alert Policy on select_slo_burn_rate.'
     },
     {
       question: '*Your organization wants to collect system logs that will be used to generate dashboards\
@@ -1679,7 +1679,7 @@ practices, what triggers should be defined in the postmortem policy? (Choose two
         'The monitoring system detects that one of the instances for your application has failed.',
         'The CD pipeline detects an issue and rolls back a problematic release.',
       ],
-      answer: ['Data is lost due to an incident','The CD pipeline detects an issue and rolls back a problematic release.','The CD pipeline detects an issue and rolls back a problematic release.',]
+      answer: ['Data is lost due to an incident','The CD pipeline detects an issue and rolls back a problematic release.',]
     },
     
 ];
