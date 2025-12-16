@@ -25,12 +25,12 @@ const questions = [
   {
     question: '*Your team needs to create a Google Kubernetes Engine (GKE) cluster to host a newly built application that requires access to third-party services on the internet. Your company does not allow any Compute Engine instance to have a public IP address on Google Cloud. You need to create a deployment strategy that adheres to these guidelines. What should you do?*',
     options: [
-      '*Configure the GKE cluster as a private cluster, and configure Cloud NAT Gateway for the cluster subnet*',
+      'Configure the GKE cluster as a private cluster, and configure Cloud NAT Gateway for the cluster subnet',
       'Configure the GKE cluster as a private cluster. Configure Private Google Access on the Virtual Private Cloud (VPC)',
       'Configure the GKE cluster as a route-based cluster. Configure Private Google Access on the Virtual Private Cloud (VPC)',
       'Create a Compute Engine instance, and install a NAT Proxy on the instance. Configure all workloads on GKE to pass through this proxy to access third-party services on the Internet'
     ],
-    answer: '*Configure the GKE cluster as a private cluster, and configure Cloud NAT Gateway for the cluster subnet*',
+    answer: 'Configure the GKE cluster as a private cluster, and configure Cloud NAT Gateway for the cluster subnet',
   },
   {
     question: '*You created a Stackdriver chart for CPU utilization in a dashboard within your workspace project. You want to share the chart with your Site Reliability Engineering (SRE) team only. You want to ensure you follow the principle of least privilege. What should you do?*',
