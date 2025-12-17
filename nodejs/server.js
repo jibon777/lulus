@@ -222,7 +222,7 @@ using the most CPU and memory. What should you do?*',
       'Use Stackdriver Logging to export application logs to BigQuery, aggregate logs per container, and then analyze CPU and memory consumption.',
       ],
       answer: [
-        'Set up a filter in Cloud Logging and a Cloud Storage bucket as an export target for the logs you want to save.',
+        'Use Stackdriver Kubernetes Engine Monitoring.',
       ],
   },
   {
@@ -1679,7 +1679,7 @@ practices, what triggers should be defined in the postmortem policy? (Choose two
         'The monitoring system detects that one of the instances for your application has failed.',
         'The CD pipeline detects an issue and rolls back a problematic release.',
       ],
-      answer: ['Data is lost due to an incident','The CD pipeline detects an issue and rolls back a problematic release.',]
+      answer: ['Data is lost due to an incident.','The CD pipeline detects an issue and rolls back a problematic release.',]
     },
     
 ];
